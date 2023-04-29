@@ -35,7 +35,7 @@
                   <span class="text-white font-semibold m-2 ">Diseases</span>
               </router-link>
             <!-- MESSAGES BUTTON -->
-            <router-link tag="button" to="/records" class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500  py-3 px-4">
+            <router-link tag="button" to="/sms" class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500  py-3 px-4">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                 <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
                 <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
@@ -106,7 +106,8 @@
                       <th class="px-4 py-2 font-semibold text-white shadow-lg">DISEASE NAME</th>
                       <th class="px-4 py-2 font-semibold text-white shadow-md">DATE CREATED</th>
                       <th class="px-4 py-2 font-semibold text-white shadow-md">LAST MODIFIED</th>
-                      <th class="px-4 py-2 font-semibold text-white shadow-md">ACTION</th>
+                      <th class="px-4 py-2 font-semibold text-white shadow-md">EDIT</th>
+                      <th class="px-4 py-2 font-semibold text-white shadow-md">VIEW</th>
                     </tr>
                          
                   </thead>
@@ -118,10 +119,17 @@
                       <td class="px-4 py-1">{{ disease.modified_at }}</td>
                       <td class="px-4 py-2">
                         <router-link :to="{name: 'editDisease', params: { id: disease.id }}" class="px-4 py-2 bg-blue-500 rounded-lg hover:bg-blue-900" type="button">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-8 h-8 mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-6 h-6 mx-auto">
                         <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
                         <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
                         </svg>
+                      </router-link>
+                      </td>
+                      <td class="px-4 py-2">
+                        <router-link :to="{name: 'ViewDisease', params: { id: disease.id }}" class="px-4 py-2 bg-green-600 rounded-lg hover:bg-green-950" type="button">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-6 h-6">
+                          <path d="M12.378 1.602a.75.75 0 00-.756 0L3 6.632l9 5.25 9-5.25-8.622-5.03zM21.75 7.93l-9 5.25v9l8.628-5.032a.75.75 0 00.372-.648V7.93zM11.25 22.18v-9l-9-5.25v8.57a.75.75 0 00.372.648l8.628 5.033z" />
+                          </svg>
                       </router-link>
                       </td>
                     </tr>

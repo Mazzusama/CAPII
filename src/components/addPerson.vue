@@ -141,9 +141,9 @@
             Labor/s
           </label>
           <div class="flex flex-wrap items-center gap-x-2">
-            <label v-for="item in laborList" :key="item.id" class="inline-flex items-center">
-              <input type="checkbox" v-model="selectedLabor" :value="item.id" class="form-checkbox h-5 w-5 text-gray-600">
-              <span class="ml-2 text-gray-700">{{ item.name }}</span>
+            <label v-for="labor in laborList" :key="labor.id" class="inline-flex items-center">
+              <input type="checkbox" v-model="selectedLabor" :value="labor.id" class="form-checkbox h-5 w-5 text-gray-600">
+              <span class="ml-2 text-gray-700">{{ labor.name }}</span>
             </label>
           </div>
         </div>
@@ -191,8 +191,6 @@
         gender: '',
         phone_number: '',
         purok: '',
-        disease: [],
-        labor: [],
         selectedLabor: [],
         laborList: [],
         selectedDisease: [],
@@ -233,24 +231,29 @@
         });
       },
       submit() {
-        
+        const diseaseArr = [...this.selectedDisease];
+        const laborArr = [...this.selectedLabor];
+        console.log(this.selectedDisease)
         axios.post('https://ejohncarlsrizz.pythonanywhere.com/person/', {
             first_name: this.firstName,
             middle_name: this.middleName,
             last_name: this.lastName,
             lives_at: this.purok,
-            phone_number: this.phoneNumber,
+            phone_number: this.phone_number,
             gender: this.gender,
             birthday: this.birthday,
-            labor: this.selectedLabor,
-            disease: this.selectedDisease
+            disease: diseaseArr,
+            labor: laborArr
         }, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('access_token')}`
           }
         })
         .then(response => {
-          this.$emit('success');
+    this.$emit('success');
+    // this.selectedLabor = []; // clear selected labor options
+    // this.selectedDisease = []; // clear selected disease options
+
           // window.location.reload();
         })
         .catch(error => {
