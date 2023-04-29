@@ -52,7 +52,7 @@
     components:{
       Navbar
     },
-    props: {
+    props: {  
     id: {
       type: String,
       required: true

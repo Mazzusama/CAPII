@@ -136,6 +136,25 @@
             />
         </div>
         </div>
+        <div class="flex flex-col">
+
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+          Labor
+          </label>
+          <select
+              v-model="labor"
+              class="block appearance-none w-24
+              bg-gray-200 border 
+              border-gray-200 
+              text-gray-700 py-3 px-4 pr-8 
+              rounded leading-tight 
+              focus:outline-none
+              focus:bg-white
+              focus:border-gray-500"
+              type="number">
+              <option>{{ labor.labor }}</option>
+          </select>
+          </div>
         </div>
         <div class="flex items-center justify-start mt-4 gap-x-2">
           <button
@@ -169,6 +188,7 @@
         gender: '',
         phone_number: '',
         purok: '',
+        labor: '',
       };
     },
     methods: {
@@ -180,7 +200,8 @@
             lives_at: this.purok,
             phone_number: this.phoneNumber,
             gender: this.gender,
-            birthday: this.birthday
+            birthday: this.birthday,
+            labor: this.data.labor
         }, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('access_token')}`
