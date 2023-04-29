@@ -137,24 +137,27 @@
         </div>
         </div>
         <div class="flex flex-col">
-
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
-          Labor
+            Labor/s
           </label>
-          <select
-              v-model="labor"
-              class="block appearance-none w-24
-              bg-gray-200 border 
-              border-gray-200 
-              text-gray-700 py-3 px-4 pr-8 
-              rounded leading-tight 
-              focus:outline-none
-              focus:bg-white
-              focus:border-gray-500"
-              type="number">
-              <option>{{ labor.labor }}</option>
-          </select>
+          <div class="flex flex-wrap items-center gap-x-2">
+            <label v-for="item in laborList" :key="item.id" class="inline-flex items-center">
+              <input type="checkbox" v-model="selectedLabor" :value="item.id" class="form-checkbox h-5 w-5 text-gray-600">
+              <span class="ml-2 text-gray-700">{{ item.name }}</span>
+            </label>
           </div>
+        </div>
+        <div class="flex flex-col">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+            Disease/s
+          </label>
+          <div class="flex flex-wrap items-center gap-x-2">
+            <label v-for="disease in diseaseList" :key="disease.id" class="inline-flex items-center">
+              <input type="checkbox" v-model="selectedDisease" :value="disease.id" class="form-checkbox h-5 w-5 text-gray-600">
+              <span class="ml-2 text-gray-700">{{ disease.name }}</span>
+            </label>
+          </div>
+        </div>
         </div>
         <div class="flex items-center justify-start mt-4 gap-x-2">
           <button
@@ -188,11 +191,49 @@
         gender: '',
         phone_number: '',
         purok: '',
-        labor: '',
+        disease: [],
+        labor: [],
+        selectedLabor: [],
+        laborList: [],
+        selectedDisease: [],
+        diseaseList: []
       };
     },
+    created() {
+    this.fetchLabor();
+    this.fetchDisease();
+    },
     methods: {
+      fetchLabor() {
+      const url = 'https://ejohncarlsrizz.pythonanywhere.com/labor/';
+      axios.get(url, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('access_token')}`
+      }
+      })
+          .then(response => {
+          this.laborList = response.data.data;
+        })
+        .catch(error => {
+          this.$emit('error', error);
+        });
+      },
+      fetchDisease() {
+      const url = 'https://ejohncarlsrizz.pythonanywhere.com/disease/';
+      axios.get(url, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('access_token')}`
+      }
+      })
+          .then(response => {
+          this.diseaseList = response.data.data;
+        })
+        .catch(error => {
+          this.$emit('error', error);
+        });
+      },
       submit() {
+        
         axios.post('https://ejohncarlsrizz.pythonanywhere.com/person/', {
             first_name: this.firstName,
             middle_name: this.middleName,
@@ -201,7 +242,8 @@
             phone_number: this.phoneNumber,
             gender: this.gender,
             birthday: this.birthday,
-            labor: this.data.labor
+            labor: this.selectedLabor,
+            disease: this.selectedDisease
         }, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('access_token')}`
@@ -209,7 +251,7 @@
         })
         .then(response => {
           this.$emit('success');
-          window.location.reload();
+          // window.location.reload();
         })
         .catch(error => {
           this.$emit('error', error);
