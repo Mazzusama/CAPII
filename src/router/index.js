@@ -13,6 +13,7 @@ import EditRecords from '../components/editRecord.vue'
 import Sms from '../views/sms.vue'
 import ViewDiseases from '../components/viewDiseases.vue'
 import ViewLabors from '../components/viewLabors.vue'
+import ViewProfile from '../views/profileView.vue'
 import axios from "axios";
 
 const routes = [
@@ -28,6 +29,7 @@ const routes = [
     {path: '/viewLabors/:id', name: 'ViewLabors', component: ViewLabors, beforeEnter: authMiddleware},
     {path: '/agegroups', name: 'AgeGroup', component: ageGroups, beforeEnter: authMiddleware},
     {path: '/editRecords/:id', name: 'EditRecords', component: EditRecords, beforeEnter: authMiddleware},
+    {path: '/viewProfile/:id', name: 'ViewProfile', component: ViewProfile, beforeEnter: authMiddleware},
     {path: '/sms', name: 'Sms', component: Sms, beforeEnter: authMiddleware}
 ]
 
