@@ -139,7 +139,7 @@ function authMiddleware(to, from, next) {
         return next('/login')
     } else {
         axios
-            .get(`https://ejohncarlsrizz.pythonanywhere.com/auth/login/`, {
+            .get(`https://ejohncarlsrizz.pythonanywhere.com/labor/`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
