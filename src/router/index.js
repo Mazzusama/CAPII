@@ -139,13 +139,13 @@ function authMiddleware(to, from, next) {
         return next('/login')
     } else {
         axios
-            .get('https://ejohncarlsrizz.pythonanywhere.com/labor/', {
+            .get(`https://ejohncarlsrizz.pythonanywhere.com/auth/login/`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
             })
             .then((response) => {
-                store.commit('user/setUser', response.data)
+                store.commit('user/setUser', response.data.data)
                 next()
             })
             .catch((error) => {
