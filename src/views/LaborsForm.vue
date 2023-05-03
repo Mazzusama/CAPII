@@ -268,7 +268,12 @@
                                         <th
                                             class="px-4 py-2 font-semibold text-white shadow-md"
                                         >
-                                            ACTION
+                                            Edit
+                                        </th>
+                                        <th
+                                            class="px-4 py-2 font-semibold text-white shadow-md"
+                                        >
+                                            View
                                         </th>
                                     </tr>
                                 </thead>
@@ -312,16 +317,35 @@
                                                 </svg>
                                             </router-link>
                                         </td>
+                                        <td class="px-4 py-2">
+                                            <router-link
+                                                :to="{
+                                                    name: 'ViewLabors',
+                                                    params: { id: labor.id },
+                                                }"
+                                                class="px-4 py-2 bg-green-600 rounded-lg hover:bg-green-950"
+                                                type="button"
+                                                @click="
+                                                    showMessageDetails(
+                                                        message.id
+                                                    )
+                                                "
+                                            >
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24"
+                                                    fill="white"
+                                                    class="w-6 h-6"
+                                                >
+                                                    <path
+                                                        d="M12.378 1.602a.75.75 0 00-.756 0L3 6.632l9 5.25 9-5.25-8.622-5.03zM21.75 7.93l-9 5.25v9l8.628-5.032a.75.75 0 00.372-.648V7.93zM11.25 22.18v-9l-9-5.25v8.57a.75.75 0 00.372.648l8.628 5.033z"
+                                                    />
+                                                </svg>
+                                            </router-link>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
-                            <div class="my-4">
-                                <pagination
-                                    :current-page="currentPage"
-                                    :total-pages="totalPages"
-                                    @page-changed="changePage"
-                                />
-                            </div>
                         </div>
                     </form>
                 </div>
@@ -343,23 +367,11 @@ export default {
     components: {
         addLabor,
     },
-    computed: {
-        paginatedData() {
-            const start = (this.currentPage - 1) * this.perPage
-            const end = start + this.perPage
-            return this.labors.slice(start, end)
-        },
-        totalPages() {
-            return Math.ceil(this.labors.length / this.perPage)
-        },
-    },
+
     data() {
         return {
             laborList: [],
             showForm: false,
-            currentPage: 1,
-            perPage: 10,
-            totalPages: 0,
         }
     },
     created() {
