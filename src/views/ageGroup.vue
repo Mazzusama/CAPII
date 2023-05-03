@@ -5,7 +5,7 @@
             <div class="flex flex-row">
                 <img
                     class="rounded-md w-12 h-12 m-4"
-                    src="../assets/C.A.P.I (1).png"
+                    src="../assets/C.A.P.I(1).png"
                 />
                 <a
                     class="font-sans text-2xl py-6 text-white hover:text-gray-200 hover:opacity-70"

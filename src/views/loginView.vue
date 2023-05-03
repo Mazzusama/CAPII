@@ -51,7 +51,7 @@
                 <div class="flex items-center flex-col">
                     <img
                         class="h-28 w-28 mb-5 p-1 bg-primary rounded-lg flex items-center justify-center"
-                        src="../assets/C.A.P.I (1).png"
+                        src="../assets/C.A.P.I(1).png"
                     />
                     <h1 class="text-center text-3xl text-primary font-bold">
                         LOGIN
