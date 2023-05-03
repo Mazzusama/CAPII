@@ -4,11 +4,11 @@
         <div class="bg-primary w-44 flex flex-col space-y-6">
             <div class="flex flex-row">
                 <img
-                    class="rounded-md w-12 h-12 m-4"
-                    src="../assets/C.A.P.I (1).png"
+                    class="rounded-md w-12 h-12 m-2"
+                    src="../../assets/C.A.P.I (1).png"
                 />
                 <a
-                    class="font-sans text-2xl py-6 text-white hover:text-gray-200 hover:opacity-70"
+                    class="font-sans text-2xl py-4 text-white hover:text-gray-200 hover:opacity-70"
                     >C.A.P.I
                 </a>
             </div>
@@ -19,13 +19,13 @@
                     <router-link
                         tag="button"
                         to="/home"
-                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 active:bg-blue-500 py-1 px-4"
+                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 active:bg-blue-500 py-3 px-4"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
                             fill="currentColor"
-                            class="w-5 h-5"
+                            class="w-6 h-6"
                         >
                             <path
                                 d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z"
@@ -43,13 +43,13 @@
                     <router-link
                         tag="button"
                         to="/labors"
-                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 active:bg-blue-500 py-1 px-4"
+                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 active:bg-blue-500 py-3 px-4"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
                             fill="currentColor"
-                            class="w-5 h-5"
+                            class="w-6 h-6"
                         >
                             <path
                                 fill-rule="evenodd"
@@ -66,13 +66,13 @@
                     <router-link
                         tag="button"
                         to="/disease"
-                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 active:bg-blue-500 py-1 px-4"
+                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 active:bg-blue-500 py-3 px-4"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
                             fill="currentColor"
-                            class="w-5 h-5"
+                            class="w-6 h-6"
                         >
                             <path
                                 fill-rule="evenodd"
@@ -93,13 +93,13 @@
                     <router-link
                         tag="button"
                         to="/sms"
-                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 active:bg-blue-500 py-1 px-4"
+                        class="text-white flex items-center space-x-2 bg-blue-500 py-3 px-4"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
                             fill="currentColor"
-                            class="w-5 h-5"
+                            class="w-6 h-6"
                         >
                             <path
                                 d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"
@@ -109,20 +109,20 @@
                             />
                         </svg>
                         <span class="text-white font-semibold m-2"
-                            >Send Message</span
+                            >Messages</span
                         >
                     </router-link>
                     <!-- RECORDS -->
                     <router-link
                         tag="button"
                         to="/records"
-                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 active:bg-blue-500 py-1 px-4"
+                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 active:bg-blue-500 py-3 px-4"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
                             fill="currentColor"
-                            class="w-5 h-5"
+                            class="w-6 h-6"
                         >
                             <path
                                 d="M4.5 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM14.25 8.625a3.375 3.375 0 116.75 0 3.375 3.375 0 01-6.75 0zM1.5 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM17.25 19.128l-.001.144a2.25 2.25 0 01-.233.96 10.088 10.088 0 005.06-1.01.75.75 0 00.42-.643 4.875 4.875 0 00-6.957-4.611 8.586 8.586 0 011.71 5.157v.003z"
@@ -136,13 +136,13 @@
                     <router-link
                         tag="button"
                         to="/agegroups"
-                        class="text-white flex items-center space-x-2 bg-blue-500 py-1 px-4"
+                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 active:bg-blue-500 py-3 px-4"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
                             fill="currentColor"
-                            class="w-5 h-5"
+                            class="w-6 h-6"
                         >
                             <path
                                 d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z"
@@ -156,7 +156,7 @@
                     <router-link
                         to="/login"
                         @click="logout"
-                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 active:bg-blue-500 py-1 px-4"
+                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 active:bg-blue-500 py-3 px-4"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -181,137 +181,85 @@
         <!-- main content -->
         <div class="flex-1">
             <!-- header -->
-            <div class="bg-white shadow px-2 py-4 text-4xl">AGE GROUP</div>
+            <div class="bg-white shadow px-2 py-4">Send Messages</div>
             <!-- content -->
-            <div class="w-max flex mx-auto m-20">
-                <div class="flex overflow-x-auto">
-                    <form class="bg-gray-200 shadow-md rounded-lg mb-2">
-                        <!-- ########################################################################### SEARCH BAR ############################################################################################ -->
-                        <div
-                            class="flex flex-row p-4 bg-secondary rounded-t-lg"
-                        >
-                            <label class="relative block">
-                                <span class="sr-only">Search</span>
-                                <span
-                                    class="absolute inset-y-0 left-0 flex items-center pl-2"
-                                >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke-width="1.5"
-                                        class="w-5 h-5 stroke-slate-400"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                                        />
-                                    </svg>
-                                </span>
-                                <input
-                                    class="placeholder:italic block font-semibold bg-sky-200 w-full border border-blue-600 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-                                    placeholder="Search for anything..."
-                                    type="text"
-                                    name="search"
-                                />
-                            </label>
-                            <button
-                                class="rounded-lg bg-blue-600 font-sans text-sm text-white p-2 font-semibold mx-2 shadow-md hover:bg-blue-900"
+            <div
+                class="outline-2 outline-slate-100 max-w-screen rounded-lg flex"
+            >
+                <div class="">
+                    <router-link
+                        type="button"
+                        class="p-2 text-white font-semibold text-sm bg-primary hover:bg-blue-950"
+                        to="/sendPurok"
+                        >By Purok</router-link
+                    >
+                    <router-link
+                        type="button"
+                        class="p-2 text-white font-semibold text-sm bg-blue-950"
+                        to="/sendLabor"
+                        >By Labor</router-link
+                    >
+                    <router-link
+                        type="button"
+                        class="p-2 text-white font-semibold text-sm bg-primary hover:bg-blue-950"
+                        to="/sendDisease"
+                        >By Disease</router-link
+                    >
+                    <router-link
+                        type="button"
+                        class="p-2 text-white font-semibold text-sm bg-primary hover:bg-blue-950"
+                        to="/sendUser"
+                        >By Person</router-link
+                    >
+
+                    <router-link
+                        type="button"
+                        class="p-2 text-white font-semibold text-sm bg-primary hover:bg-blue-950"
+                        to="/smsHistory"
+                        >View SMS History</router-link
+                    >
+                    <form @submit.prevent="submit">
+                        <div class="mb-4 w-full">
+                            <label
+                                class="text-center block font-bold mb-2 w-full bg-secondary p-1"
+                                for="recipients"
+                                >Send SMS by Labor</label
                             >
-                                Search
-                            </button>
-                            <button
-                                class="rounded-lg bg-green-500 font-sans text-sm text-white p-2 font-semibold mx-2 shadow-md hover:bg-green-900"
+                            <select
+                                v-model="labor"
+                                class="w-full p-2 border border-gray-900 bg-slate-400 text-lg font-semibold text-white"
                             >
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    fill="currentColor"
-                                    class="w-6 h-6"
+                                <option disabled selected value="">
+                                    Select a labor
+                                </option>
+                                <option
+                                    v-for="labor in laborList"
+                                    :value="labor.name"
+                                    class="text-sm font-semibold text-white"
                                 >
-                                    <path
-                                        d="M6.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM3.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM19.75 7.5a.75.75 0 00-1.5 0v2.25H16a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H22a.75.75 0 000-1.5h-2.25V7.5z"
-                                    />
-                                </svg>
-                            </button>
+                                    {{ labor.name }}
+                                </option>
+                            </select>
                         </div>
-                        <!-- ############################################################################## /SEARCH BAR ########################################################################################### -->
-                        <table class="p-5">
-                            <thead
-                                class="bg-green-600 font-semibold text-center"
+                        <div class="mb-4">
+                            <label
+                                class="block font-bold m-2 bg-secondary p-1 bg-opacity-40 rounded-lg w-full"
+                                for="message"
+                                >Message</label
                             >
-                                <tr class="divide-x">
-                                    <th
-                                        class="px-4 py-2 font-semibold text-white shadow-lg"
-                                    >
-                                        LABOR NAME
-                                    </th>
-                                    <th
-                                        class="px-4 py-2 font-semibold text-white shadow-md"
-                                    >
-                                        CONTACT
-                                    </th>
-                                    <th
-                                        class="px-4 py-2 font-semibold text-white shadow-md"
-                                    >
-                                        PUROK
-                                    </th>
-                                    <th
-                                        class="px-4 py-2 font-semibold text-white shadow-md"
-                                    >
-                                        AGE RANGE
-                                    </th>
-                                    <th
-                                        class="px-4 py-2 font-semibold text-white shadow-md"
-                                    >
-                                        HEALTH STATUS
-                                    </th>
-                                    <th
-                                        class="px-4 py-2 font-semibold text-white shadow-md"
-                                    >
-                                        LABOR
-                                    </th>
-                                    <th
-                                        class="px-4 py-2 font-semibold text-white shadow-md"
-                                    >
-                                        PROFILE
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr
-                                    class="odd:bg-white even:bg-slate-50 divide-x"
-                                >
-                                    <td class="px-4 py-2">{gender}</td>
-                                    <td class="px-4 py-2">{person.title}</td>
-                                    <td class="px-4 py-2">{person.email}</td>
-                                    <td class="px-4 py-2">{person.email}</td>
-                                    <td class="px-4 py-2">{person.email}</td>
-                                    <td class="px-4 py-2">{person.email}</td>
-                                    <td class="px-4 py-2">{person.email}</td>
-                                    <td class="px-4 py-1">
-                                        <button
-                                            class="px-4 py-2 bg-blue-500 rounded-lg hover:bg-blue-900"
-                                        >
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 24 24"
-                                                fill="white"
-                                                class="w-8 h-8 mx-auto"
-                                            >
-                                                <path
-                                                    d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z"
-                                                />
-                                                <path
-                                                    d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z"
-                                                />
-                                            </svg>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                            <textarea
+                                v-model="message"
+                                class="form-textarea block w-full m-2 border"
+                                rows="4"
+                                placeholder="Type your message here..."
+                            ></textarea>
+                        </div>
+                        <button
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                            type="submit"
+                        >
+                            Send Message
+                        </button>
                     </form>
                 </div>
             </div>
@@ -319,10 +267,65 @@
     </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
+    created() {
+        this.authenticate()
+    },
+    data() {
+        return {
+            laborList: [],
+            message: '',
+            labor: '',
+        }
+    },
     methods: {
         logout() {
-            this.$store.dispatch('logout')
+            this.$store.dispatch('user/logout')
+        },
+        authenticate() {
+            const axiosInstance = axios.create({
+                baseURL: 'https://ejohncarlsrizz.pythonanywhere.com/',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${localStorage.getItem(
+                        'access_token'
+                    )}`,
+                },
+            })
+            axiosInstance
+                .get('labor/')
+                .then((response) => {
+                    console.log('data', response.data)
+                    this.$store.commit('user/setUser', response.data.data)
+                    this.laborList = response.data.data
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+        },
+        submit() {
+            axios
+                .post(
+                    `https://ejohncarlsrizz.pythonanywhere.com/sms/labor/`,
+                    {
+                        labor: this.labor,
+                        message: this.message,
+                    },
+                    {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem(
+                                'access_token'
+                            )}`,
+                        },
+                    }
+                )
+                .then((response) => {
+                    this.$emit('success')
+                })
+                .catch((error) => {
+                    this.$emit('error', error)
+                })
         },
     },
 }

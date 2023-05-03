@@ -1,40 +1,44 @@
 <template>
-    <div class="fixed bottom-10 right-10 z-50">
-      <div v-if="show" class="bg-green-500 text-white p-4 rounded-lg shadow-lg">
-        <p class="font-bold mb-2">{{ message }}</p>
-      </div>
+  <div class="fixed bottom-10 right-10 z-50">
+    <div v-if="show" class="bg-green-500 text-white p-4 rounded-lg shadow-lg">
+      <p class="font-bold mb-2" v-for="msg in successMessages">{{ msg }}</p>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    props: {
-      message: {
-        type: String,
-        required: true,
-      },
-      duration: {
-        type: Number,
-        default: 3000,
-      },
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    response: {
+      type: Object,
+      required: true,
     },
-    data() {
-      return {
-        show: false,
-      };
+    duration: {
+      type: Number,
+      default: 3000,
     },
-    methods: {
-      showNotification() {
-        this.show = true;
-        setTimeout(() => {
-          this.show = false;
-        }, this.duration);
-      },
+  },
+  data() {
+    return {
+      show: false,
+      successMessages: [],
+    };
+  },
+  methods: {
+    showNotification() {
+      this.show = true;
+      setTimeout(() => {
+        this.show = false;
+      }, this.duration);
     },
-    watch: {
-      message() {
+  },
+  watch: {
+    response() {
+      if (this.response && this.response.data && this.response.data.success) {
+        this.successMessages = this.response.data.success;
         this.showNotification();
-      },
+      }
     },
-  };
-  </script>
+  },
+};
+</script>

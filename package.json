@@ -21,13 +21,14 @@
     "safe-buffer": "^5.2.1",
     "vue": "^3.2.47",
     "vue-axios": "^3.5.2",
+    "vue-pagination-2": "^3.1.0",
     "vue-router": "4",
     "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.9",
-    "@vitejs/plugin-vue": "^4.1.0",
+    "@vitejs/plugin-vue": "^4.2.1",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.37.0",
     "eslint-config-prettier": "^8.8.0",

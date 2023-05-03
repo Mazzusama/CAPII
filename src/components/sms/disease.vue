@@ -4,11 +4,11 @@
         <div class="bg-primary w-44 flex flex-col space-y-6">
             <div class="flex flex-row">
                 <img
-                    class="rounded-md w-12 h-12 m-4"
-                    src="../assets/C.A.P.I (1).png"
+                    class="rounded-md w-12 h-12 m-2"
+                    src="../../assets/C.A.P.I (1).png"
                 />
                 <a
-                    class="font-sans text-2xl py-6 text-white hover:text-gray-200 hover:opacity-70"
+                    class="font-sans text-2xl py-4 text-white hover:text-gray-200 hover:opacity-70"
                     >C.A.P.I
                 </a>
             </div>
@@ -43,7 +43,7 @@
                     <router-link
                         tag="button"
                         to="/labors"
-                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 py-3 px-4"
+                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 active:bg-blue-500 py-3 px-4"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -65,8 +65,8 @@
                     <!-- DISEASES BUTTON -->
                     <router-link
                         tag="button"
-                        to="/agegroups"
-                        class="text-white flex items-center space-x-2 bg-blue-500 py-3 px-4"
+                        to="/disease"
+                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 active:bg-blue-500 py-3 px-4"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -93,7 +93,7 @@
                     <router-link
                         tag="button"
                         to="/sms"
-                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 py-3 px-4"
+                        class="text-white flex items-center space-x-2 bg-blue-500 py-3 px-4"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -109,14 +109,14 @@
                             />
                         </svg>
                         <span class="text-white font-semibold m-2"
-                            >Send Message</span
+                            >Messages</span
                         >
                     </router-link>
                     <!-- RECORDS -->
                     <router-link
                         tag="button"
                         to="/records"
-                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 py-3 px-4"
+                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 active:bg-blue-500 py-3 px-4"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -136,7 +136,7 @@
                     <router-link
                         tag="button"
                         to="/agegroups"
-                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 py-3 px-4"
+                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 active:bg-blue-500 py-3 px-4"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -156,7 +156,7 @@
                     <router-link
                         to="/login"
                         @click="logout"
-                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 py-3 px-4"
+                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 active:bg-blue-500 py-3 px-4"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -181,169 +181,85 @@
         <!-- main content -->
         <div class="flex-1">
             <!-- header -->
-            <div class="bg-white shadow px-2 py-4 text-4xl">
-                List of Diseases
-            </div>
+            <div class="bg-white shadow px-2 py-4">Send Messages</div>
             <!-- content -->
-            <div
-                v-if="showForm"
-                class="fixed top-0 left-0 w-screen h-screen bg-gray-800 bg-opacity-75 flex items-center justify-center z-50"
-            >
-                <addDisease
-                    @submit="addNewDisease"
-                    @cancel="showForm = false"
-                />
-            </div>
-            <div class="w-max flex mx-auto">
-                <div class="flex">
-                    <form class="bg-gray-200 shadow-md rounded-lg mb-2">
-                        <!-- ########################################################################### SEARCH BAR ############################################################################################ -->
-                        <div class="flex flex-row p-4 bg-blue-500 rounded-t-lg">
-                            <label class="relative block">
-                                <span
-                                    class="absolute inset-y-0 left-0 flex items-center pl-2"
-                                >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke-width="1.5"
-                                        class="w-5 h-5 stroke-slate-400"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                                        />
-                                    </svg>
-                                </span>
-                                <input
-                                    @click.prevent
-                                    class="placeholder:italic block font-semibold bg-sky-200 w-full border border-blue-600 rounded-md py-2 pl-7 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-                                    placeholder="Search for anything..."
-                                    type="text"
-                                />
-                            </label>
-                            <button
-                                class="rounded-lg bg-blue-600 font-sans text-sm text-white p-2 font-semibold mx-2 shadow-md hover:bg-blue-900"
-                            >
-                                Search
-                            </button>
-                            <button
-                                @click.prevent="showForm = true"
-                                class="rounded-lg bg-green-500 font-sans text-sm text-white p-2 font-semibold mx-2 shadow-md hover:bg-green-900"
-                            >
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    fill="currentColor"
-                                    class="w-6 h-6"
-                                >
-                                    <path
-                                        fill-rule="evenodd"
-                                        d="M12 3.75a.75.75 0 01.75.75v6.75h6.75a.75.75 0 010 1.5h-6.75v6.75a.75.75 0 01-1.5 0v-6.75H4.5a.75.75 0 010-1.5h6.75V4.5a.75.75 0 01.75-.75z"
-                                        clip-rule="evenodd"
-                                    />
-                                </svg>
-                            </button>
-                        </div>
-                        <!-- ############################################################################## /SEARCH BAR ########################################################################################### -->
-                        <table class="p-5">
-                            <thead
-                                class="bg-green-600 font-semibold text-center"
-                            >
-                                <tr class="divide-x">
-                                    <th
-                                        class="px-4 py-2 font-semibold text-white shadow-lg"
-                                    >
-                                        DISEASE NAME
-                                    </th>
-                                    <th
-                                        class="px-4 py-2 font-semibold text-white shadow-md"
-                                    >
-                                        DATE CREATED
-                                    </th>
-                                    <th
-                                        class="px-4 py-2 font-semibold text-white shadow-md"
-                                    >
-                                        LAST MODIFIED
-                                    </th>
-                                    <th
-                                        class="px-4 py-2 font-semibold text-white shadow-md"
-                                    >
-                                        EDIT
-                                    </th>
-                                    <th
-                                        class="px-4 py-2 font-semibold text-white shadow-md"
-                                    >
-                                        VIEW
-                                    </th>
-                                </tr>
-                            </thead>
 
-                            <tbody>
-                                <tr
-                                    class="odd:bg-white even:bg-slate-50 divide-x"
+            <div
+                class="outline-2 outline-slate-100 max-w-screen rounded-lg flex"
+            >
+                <div class="">
+                    <router-link
+                        type="button"
+                        class="p-2 text-white font-semibold text-sm bg-primary hover:bg-blue-950"
+                        to="/sendPurok"
+                        >By Purok</router-link
+                    >
+                    <router-link
+                        type="button"
+                        class="p-2 text-white font-semibold text-sm bg-primary hover:bg-blue-950"
+                        to="/sendLabor"
+                        >By Labor</router-link
+                    >
+                    <router-link
+                        type="button"
+                        class="p-2 text-white font-semibold text-sm bg-blue-950"
+                        to="/sendDisease"
+                        >By Disease</router-link
+                    >
+                    <router-link
+                        type="button"
+                        class="p-2 text-white font-semibold text-sm bg-primary hover:bg-blue-950"
+                        to="/sendUser"
+                        >By Person</router-link
+                    >
+                    <router-link
+                        type="button"
+                        class="p-2 text-white font-semibold text-sm bg-primary hover:bg-blue-950"
+                        to="/smsHistory"
+                        >View SMS History</router-link
+                    >
+                    <form @submit.prevent="submit">
+                        <div class="mb-4 w-full">
+                            <label
+                                class="text-center block font-bold mb-2 w-full bg-secondary p-1"
+                                for="recipients"
+                                >Send SMS by Disease</label
+                            >
+                            <select
+                                v-model="disease"
+                                class="w-full p-2 border border-gray-900 bg-slate-400 text-lg font-semibold text-white"
+                            >
+                                <option disabled selected value="">
+                                    Select a disease
+                                </option>
+                                <option
                                     v-for="disease in diseaseList"
-                                    :key="disease.id"
+                                    :value="disease.name"
+                                    class="text-sm font-semibold text-white"
                                 >
-                                    <td class="px-4 py-2">
-                                        {{ disease.name }}
-                                    </td>
-                                    <td class="px-4 py-1">
-                                        {{ disease.created_at }}
-                                    </td>
-                                    <td class="px-4 py-1">
-                                        {{ disease.modified_at }}
-                                    </td>
-                                    <td class="px-4 py-2">
-                                        <router-link
-                                            :to="{
-                                                name: 'editDisease',
-                                                params: { id: disease.id },
-                                            }"
-                                            class="px-4 py-2 bg-blue-500 rounded-lg hover:bg-blue-900"
-                                            type="button"
-                                        >
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 24 24"
-                                                fill="white"
-                                                class="w-6 h-6 mx-auto"
-                                            >
-                                                <path
-                                                    d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z"
-                                                />
-                                                <path
-                                                    d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z"
-                                                />
-                                            </svg>
-                                        </router-link>
-                                    </td>
-                                    <td class="px-4 py-2">
-                                        <router-link
-                                            :to="{
-                                                name: 'ViewDisease',
-                                                params: { id: disease.id },
-                                            }"
-                                            class="px-4 py-2 bg-green-600 rounded-lg hover:bg-green-950"
-                                            type="button"
-                                        >
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 24 24"
-                                                fill="white"
-                                                class="w-6 h-6"
-                                            >
-                                                <path
-                                                    d="M12.378 1.602a.75.75 0 00-.756 0L3 6.632l9 5.25 9-5.25-8.622-5.03zM21.75 7.93l-9 5.25v9l8.628-5.032a.75.75 0 00.372-.648V7.93zM11.25 22.18v-9l-9-5.25v8.57a.75.75 0 00.372.648l8.628 5.033z"
-                                                />
-                                            </svg>
-                                        </router-link>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                    {{ disease.name }}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label
+                                class="block font-bold m-2 bg-secondary p-1 bg-opacity-40 rounded-lg w-full"
+                                for="message"
+                                >Message</label
+                            >
+                            <textarea
+                                v-model="message"
+                                class="form-textarea block w-full m-2 border"
+                                rows="4"
+                                placeholder="Type your message here..."
+                            ></textarea>
+                        </div>
+                        <button
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                            type="submit"
+                        >
+                            Send Message
+                        </button>
                     </form>
                 </div>
             </div>
@@ -352,26 +268,16 @@
 </template>
 <script>
 import axios from 'axios'
-import addDisease from '../components/addDisease.vue'
-
 export default {
-    props: {
-        disease: {
-            type: Object,
-            required: true,
-        },
-    },
-    components: {
-        addDisease,
+    created() {
+        this.authenticate()
     },
     data() {
         return {
             diseaseList: [],
-            showForm: false,
+            message: '',
+            disease: '',
         }
-    },
-    created() {
-        this.authenticate()
     },
     methods: {
         logout() {
@@ -390,7 +296,7 @@ export default {
             axiosInstance
                 .get('disease/')
                 .then((response) => {
-                    console.log('data', response.data.data)
+                    console.log('data', response.data)
                     this.$store.commit('user/setUser', response.data.data)
                     this.diseaseList = response.data.data
                 })
@@ -398,10 +304,28 @@ export default {
                     console.log(error)
                 })
         },
-        addNewDisease(newDisease) {
-            const disease = {
-                id: this.diseaseList.length,
-            }
+        submit() {
+            axios
+                .post(
+                    `https://ejohncarlsrizz.pythonanywhere.com/sms/disease/`,
+                    {
+                        disease: this.disease,
+                        message: this.message,
+                    },
+                    {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem(
+                                'access_token'
+                            )}`,
+                        },
+                    }
+                )
+                .then((response) => {
+                    this.$emit('success')
+                })
+                .catch((error) => {
+                    this.$emit('error', error)
+                })
         },
     },
 }
