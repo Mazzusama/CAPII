@@ -183,6 +183,20 @@
             <!-- header -->
             <div class="bg-white shadow px-2 py-4">Send Messages</div>
             <!-- content -->
+
+            <div class="modal">
+                <div class="modal-content">
+                    <h1>Message Details</h1>
+                    <div v-if="message">
+                        <p><strong>ID:</strong> {{ message.id }}</p>
+                        <p><strong>Message:</strong> {{ message.message }}</p>
+                        <p><strong>Date:</strong> {{ message.date }}</p>
+                    </div>
+                    <div v-else>
+                        <p>Loading...</p>
+                    </div>
+                </div>
+            </div>
             <div
                 class="outline-2 outline-slate-100 max-w-screen rounded-lg flex"
             >
@@ -279,8 +293,14 @@
 <script>
 import axios from 'axios'
 export default {
+    props: {
+        messageId: {
+            type: Object,
+            required: true,
+        },
+    },
     created() {
-        this.authenticate()
+        this.loadMessage(), this.authenticate()
     },
     data() {
         return {
@@ -311,6 +331,21 @@ export default {
                 .catch((error) => {
                     console.log(error)
                 })
+        },
+        loadMessage() {
+            axios
+                .get(
+                    `https://ejohncarlsrizz.pythonanywhere.com/message/${this.messageId}`
+                )
+                .then((response) => {
+                    this.message = response.data.data
+                })
+                .catch((error) => {
+                    console.error(error)
+                })
+        },
+        closeModal() {
+            this.$emit('close')
         },
     },
 }
