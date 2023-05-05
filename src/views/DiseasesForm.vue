@@ -56,7 +56,9 @@
                                 d="M3 18.4v-2.796a4.3 4.3 0 00.713.31A26.226 26.226 0 0012 17.25c2.892 0 5.68-.468 8.287-1.335.252-.084.49-.189.713-.311V18.4c0 1.452-1.047 2.728-2.523 2.923-2.12.282-4.282.427-6.477.427a49.19 49.19 0 01-6.477-.427C4.047 21.128 3 19.852 3 18.4z"
                             />
                         </svg>
-                        <span class="text-white font-semibold m-2">Labors</span>
+                        <span class="text-white font-semibold m-2"
+                            >H.P.B.C</span
+                        >
                     </router-link>
                     <!-- DISEASES BUTTON -->
                     <router-link
@@ -82,7 +84,7 @@
                             />
                         </svg>
                         <span class="text-white font-semibold m-2"
-                            >Diseases</span
+                            >Health Cases</span
                         >
                     </router-link>
                     <!-- MESSAGES BUTTON -->
@@ -139,7 +141,7 @@
         <div class="flex-1">
             <!-- header -->
             <div class="bg-white shadow px-2 py-4 text-4xl">
-                List of Diseases
+                List of Health Cases
             </div>
             <!-- content -->
             <div

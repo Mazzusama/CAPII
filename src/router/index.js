@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Splash from '../views/splash.vue'
+
 import Login from '../views/loginView.vue'
 import Records from '../views/RecordsView.vue'
 import store from '../../store/'

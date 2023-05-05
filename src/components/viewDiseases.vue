@@ -122,6 +122,7 @@ export default {
     },
     methods: {
         fetchData() {
+            this.searchQuery = ''
             const url = `https://ejohncarlsrizz.pythonanywhere.com/disease/${this.id}/?search=${this.searchQuery}`
 
             axios

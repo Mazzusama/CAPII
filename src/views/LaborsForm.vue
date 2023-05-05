@@ -84,7 +84,7 @@
                             />
                         </svg>
                         <span class="text-white font-semibold m-2"
-                            >Diseases</span
+                            >Health Cases</span
                         >
                     </router-link>
                     <!-- MESSAGES BUTTON -->

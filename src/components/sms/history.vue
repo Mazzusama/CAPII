@@ -56,7 +56,9 @@
                                 d="M3 18.4v-2.796a4.3 4.3 0 00.713.31A26.226 26.226 0 0012 17.25c2.892 0 5.68-.468 8.287-1.335.252-.084.49-.189.713-.311V18.4c0 1.452-1.047 2.728-2.523 2.923-2.12.282-4.282.427-6.477.427a49.19 49.19 0 01-6.477-.427C4.047 21.128 3 19.852 3 18.4z"
                             />
                         </svg>
-                        <span class="text-white font-semibold m-2">Labors</span>
+                        <span class="text-white font-semibold m-2"
+                            >H.P.B.C</span
+                        >
                     </router-link>
                     <!-- DISEASES BUTTON -->
                     <router-link
@@ -82,7 +84,7 @@
                             />
                         </svg>
                         <span class="text-white font-semibold m-2"
-                            >Diseases</span
+                            >Health Cases</span
                         >
                     </router-link>
                     <!-- MESSAGES BUTTON -->
@@ -174,10 +176,10 @@
                     </div>
                 </div>
             </div>
-            <div
-                class="outline-2 outline-slate-100 max-w-screen rounded-lg flex"
-            >
-                <div class="">
+            <div class="flex items-center flex-col p-5 bg-slate-200">
+                <div
+                    class="grid my-2 grid-cols-1 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5 w-full"
+                >
                     <router-link
                         type="button"
                         class="p-2 text-white font-semibold text-sm bg-primary hover:bg-blue-950"
@@ -209,60 +211,60 @@
                         to="/smsHistory"
                         >View SMS History</router-link
                     >
-                    <table class="p-5 w-full">
-                        <thead class="bg-green-600 font-semibold text-center">
-                            <tr class="divide-x">
-                                <th
-                                    class="px-4 py-2 font-semibold text-white shadow-md"
-                                >
-                                    Message
-                                </th>
-                                <th
-                                    class="px-4 py-2 font-semibold text-white shadow-md"
-                                >
-                                    Date
-                                </th>
-                                <th
-                                    class="px-4 py-2 font-semibold text-white shadow-md"
-                                >
-                                    view
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr
-                                class="odd:bg-white even:bg-slate-50 divide-x"
-                                v-for="message in messageList"
-                                :key="message.id"
-                            >
-                                <td class="px-4 py-2">
-                                    {{ message.id }}
-                                </td>
-                                <td class="px-4 py-2">
-                                    {{ message.timestamp }}
-                                </td>
-                                <td class="px-4 py-2">
-                                    <button
-                                        class="p-1 bg-green-600 drop-shadow-md rounded-lg"
-                                    >
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 24 24"
-                                            fill="white"
-                                            class="w-5 h-5"
-                                        >
-                                            <path
-                                                fill-rule="evenodd"
-                                                d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z"
-                                                clip-rule="evenodd"
-                                            />
-                                        </svg>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
+                <table class="p-5 w-full">
+                    <thead class="bg-green-600 font-semibold text-center">
+                        <tr class="divide-x">
+                            <th
+                                class="px-4 py-2 font-semibold text-white shadow-md"
+                            >
+                                Message
+                            </th>
+                            <th
+                                class="px-4 py-2 font-semibold text-white shadow-md"
+                            >
+                                Date
+                            </th>
+                            <th
+                                class="px-4 py-2 font-semibold text-white shadow-md"
+                            >
+                                view
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr
+                            class="odd:bg-white even:bg-slate-50 divide-x"
+                            v-for="message in messageList"
+                            :key="message.id"
+                        >
+                            <td class="px-4 py-2">
+                                {{ message.id }}
+                            </td>
+                            <td class="px-4 py-2">
+                                {{ message.timestamp }}
+                            </td>
+                            <td class="px-4 py-2">
+                                <button
+                                    class="p-1 bg-green-600 drop-shadow-md rounded-lg"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24"
+                                        fill="white"
+                                        class="w-5 h-5"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                                            clip-rule="evenodd"
+                                        />
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

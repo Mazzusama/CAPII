@@ -7,7 +7,7 @@
             <h1
                 class="text-white text-lg font-bold p-4 text-center bg-primary w-full"
             >
-                EDIT HEALTH PROGRAM BENEFICIARY CATEGORY (H.P.B.C)
+                EDIT HEALTH PROGRAM BENEFICIARY CATEGORY (Labors)
             </h1>
 
             <h1 class="Text-md m-2">Current HPBC name:</h1>
@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        <div class="w-1/2 border-1 border-gray-500 p-2 bg-gray-200 m-2">
+        <div class="auto border-1 border-gray-500 p-2 bg-gray-200 m-2">
             <!-- search -->
             <div class="p-1 bg-blue-300 rounded-t-md flex flex-row">
                 <input
@@ -57,11 +57,6 @@
                         >
                             VIEW
                         </th>
-                        <th
-                            class="px-4 py-2 font-semibold text-white shadow-md"
-                        >
-                            SEND SMS
-                        </th>
                     </tr>
                 </thead>
 
@@ -74,6 +69,30 @@
                         <td class="px-4 py-2">
                             {{ person.first_name }} {{ person.middle_name }}
                             {{ person.last_name }}
+                        </td>
+                        <td class="px-4 py-1">
+                            <router-link
+                                :to="{
+                                    name: 'ViewProfile',
+                                    params: { id: person.id },
+                                }"
+                                class="px-3 py-2 bg-green-600 rounded-lg hover:bg-green-950"
+                                type="button"
+                                @click="showMessageDetails(message.id)"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="white"
+                                    class="w-5 h-5"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
+                                        clip-rule="evenodd"
+                                    />
+                                </svg>
+                            </router-link>
                         </td>
                     </tr>
                 </tbody>
@@ -110,6 +129,7 @@ export default {
     created() {
         this.fetchLabor()
         this.fetchData()
+        this.authenticate()
     },
     computed: {
         filteredPeople() {
@@ -129,6 +149,7 @@ export default {
     },
     methods: {
         fetchData() {
+            this.searchQuery = ''
             const url = `https://ejohncarlsrizz.pythonanywhere.com/labor/${this.id}/?search=${this.searchQuery}`
 
             axios
@@ -147,6 +168,27 @@ export default {
                     console.log(error)
                 })
         },
+        authenticate() {
+            const axiosInstance = axios.create({
+                baseURL: 'https://ejohncarlsrizz.pythonanywhere.com/',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${localStorage.getItem(
+                        'access_token'
+                    )}`,
+                },
+            })
+            axiosInstance
+                .get('person/')
+                .then((response) => {
+                    console.log('DATA', response.data.data)
+                    this.$store.commit('user/setUser', response.data.data)
+                    this.LaborName = response.data.data
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+        },
         fetchLabor() {
             const url = `https://ejohncarlsrizz.pythonanywhere.com/labor/${this.id}/`
             axios
@@ -159,7 +201,7 @@ export default {
                     },
                 })
                 .then((response) => {
-                    this.LaborName = response.data.data.persons
+                    this.LaborName = response.data.data
                     this.displayLabor = response.data.data
                     this.displayLaborName = response.data.data
                 })
