@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Splash from '../views/splash.vue'
-import Home from '../views/homeview.vue'
 import Login from '../views/loginView.vue'
 import Records from '../views/RecordsView.vue'
 import store from '../../store/'
@@ -25,12 +24,7 @@ import axios from 'axios'
 const routes = [
     { path: '/', name: 'splashScreen', component: Splash },
     { path: '/login', name: 'loginScreen', component: Login },
-    {
-        path: '/home',
-        name: 'Home',
-        component: Home,
-        beforeEnter: authMiddleware,
-    },
+
     {
         path: '/records',
         name: 'records',
