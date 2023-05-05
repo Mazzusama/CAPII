@@ -5,7 +5,6 @@ import Login from '../views/loginView.vue'
 import Records from '../views/RecordsView.vue'
 import store from '../../store/'
 import Labors from '../views/LaborsForm.vue'
-import ageGroups from '../views/ageGroup.vue'
 import Disease from '../views/DiseasesForm.vue'
 import editLabor from '../components/editLabor.vue'
 import editDisease from '../components/editDisease.vue'
@@ -74,12 +73,7 @@ const routes = [
         component: ViewLabors,
         beforeEnter: authMiddleware,
     },
-    {
-        path: '/agegroups',
-        name: 'AgeGroup',
-        component: ageGroups,
-        beforeEnter: authMiddleware,
-    },
+
     {
         path: '/editRecords/:id',
         name: 'EditRecords',

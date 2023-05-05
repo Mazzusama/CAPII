@@ -4,11 +4,11 @@
         <div class="bg-primary w-44 flex flex-col space-y-6">
             <div class="flex flex-row">
                 <img
-                    class="rounded-md w-12 h-12 m-4"
+                    class="rounded-md w-12 h-12 m-2"
                     src="../assets/C.A.P.I(1).png"
                 />
                 <a
-                    class="font-sans text-2xl py-6 text-white hover:text-gray-200 hover:opacity-70"
+                    class="font-sans text-2xl py-4 text-white hover:text-gray-200 hover:opacity-70"
                     >C.A.P.I
                 </a>
             </div>
@@ -132,26 +132,7 @@
                             >Records</span
                         >
                     </router-link>
-                    <!-- AGEGROUP -->
-                    <router-link
-                        tag="button"
-                        to="/agegroups"
-                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 py-3 px-4"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            class="w-6 h-6"
-                        >
-                            <path
-                                d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z"
-                            />
-                        </svg>
-                        <span class="text-white font-semibold m-2"
-                            >Age Group</span
-                        >
-                    </router-link>
+                    
                     <!-- LOGOUT BUTTON -->
                     <router-link
                         to="/login"

@@ -1,16 +1,17 @@
 <template>
     <div><Navbar/>
-    <div class="w-screen my-20 flex items-center justify-center px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10 absolute">
+    <div class="w-screen flex items-center justify-center px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10">
       <form @submit.prevent="submit">
       
         <div>
-          <label class="block w-full bg-gray-200 text-md font-bold text-gray-700 p-4 text-center">
+          <label class="block w-full uppercase bg-gray-200 text-lg font-bold text-gray-700 p-4 text-center">
             Complete the fields below
           </label>
-        <div class="flex fles-row gap-5">
+        <div class="flex flex-row items-center gap-5">
+          <label>First Name
           <input
             v-model="firstName"
-            class="block w-64 p-2 my-3
+            class="block w-auto p-2 my-3
             border-gray-200
             border-2 rounded-md 
             placeholder:text-gray-400 
@@ -19,11 +20,12 @@
             focus:ring-indigo-200 
             focus:ring-opacity-50"
             type="text"
-            placeholder="First name"
-          />
+            placeholder=firstName
+          /></label>
+          <label>Last Name
           <input
             v-model="lastName"
-            class="block w-64 p-2 my-3
+            class="block w-auto p-2 my-3
             border-gray-200 border-2
             rounded-md 
             placeholder:text-gray-400 
@@ -34,10 +36,11 @@
             focus:ring-opacity-50"
             type="text"
             placeholder="Last name"
-          />
+          /></label>
+          <label>Middle Name
           <input
             v-model="middleName"
-            class="block w-64 p-2 my-3
+            class="block w-auto p-2 my-3
             border-gray-200 border-2
             rounded-md 
             placeholder:text-gray-400 
@@ -48,7 +51,7 @@
             focus:ring-opacity-50"
             type="text"
             placeholder="Middle name"
-          />
+          /></label>
         </div>
         <div class="flex flex-row mt-5 gap-5">
         <div class="flex flex-col">
@@ -59,7 +62,7 @@
 
             <select 
                 v-model="gender"
-                class="block appearance-none w-full 
+                class="block appearance-none w-auto 
                 bg-gray-200 border 
                 border-gray-200 
                 text-gray-700 py-3 px-4 pr-8 
@@ -80,7 +83,7 @@
             </label>
             <input 
                 v-model="phone_number"
-                class="block appearance-none w-full 
+                class="block appearance-none w-auto 
                 bg-gray-200 border 
                 border-gray-200 
                 text-gray-700 py-3 px-4 pr-8 
@@ -101,7 +104,7 @@
             <select
                 v-model="purok"
              
-                class="block appearance-none w-24
+                class="block appearance-none w-auto
                 bg-gray-200 border 
                 border-gray-200 
                 text-gray-700 py-3 px-4 pr-8 
@@ -138,6 +141,63 @@
             />
         </div>
         </div>
+        <!-- choose labor -->
+       
+        <div class="flex flex-col">
+                    <label
+                        class="bg-yellow-400 text-center uppercase tracking-wide rounded-md  text-gray-700 font-bold mt-2 text-lg"
+                        for="grid-state"
+                    >
+                        Health Category
+                    </label>
+                    <div class="grid grid-cols-4 bg-yellow-200">
+                        <label
+                            v-for="labor in laborList"
+                            :key="labor.id"
+                            class="inline-flex items-center"
+                        >
+                            <input
+                                type="checkbox"
+                                v-model="selectedLabor"
+                                multiple
+                                :value="labor.id"
+                                class="m-2 form-checkbox h-4 w-4 text-gray-600"
+                            />
+                            <span class="m-2 text-black">{{
+                                labor.name
+                            }}</span>
+                        </label>       
+                    </div>
+                </div>
+                <!-- choose disease -->
+                <div class="flex flex-col">
+                    <label
+                        class="block uppercase bg-sky-400 text-center tracking-wide text-gray-700 text-lg font-bold mb-2"
+                        for="grid-state"
+                    >
+                        Case/s
+                    </label>
+                    <div class="grid grid-cols-5 bg-blue-300 p-2 rounded-md">
+                        <label
+                            v-for="disease in diseaseList"
+                            :key="disease.id"
+                            class="inline-flex items-center"
+                        >
+                            <input
+                                type="checkbox"
+                                v-model="selectedDisease"
+                                multiple
+                                :value="disease.id"
+                                class="form-checkbox h-4 w-4 text-gray-600"
+                            />
+                            <span class="m-2 text-black">{{
+                                disease.name
+                            }}</span>
+                        </label>
+                        
+                    </div>
+                </div>
+              
         </div>
         <div class="flex items-center justify-start mt-4 gap-x-2">
           <button
@@ -190,13 +250,54 @@
       gender: '',
       birthday: '',
       records: [],
+      selectedLabor: [],
+      laborList: [],
+      selectedDisease: [],
+      diseaseList: [],
       id: this.$route.params.id
     };
     },
     created() {
     this.fetchRecords();
+    this.fetchLabor()
+    this.fetchDisease()
+
   },
   methods: {
+    fetchLabor() {
+            const url = 'https://ejohncarlsrizz.pythonanywhere.com/labor/'
+            axios
+                .get(url, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem(
+                            'access_token'
+                        )}`,
+                    },
+                })
+                .then((response) => {
+                    this.laborList = response.data.data
+                })
+                .catch((error) => {
+                    this.$emit('error', error)
+                })
+        },
+        fetchDisease() {
+            const url = 'https://ejohncarlsrizz.pythonanywhere.com/disease/'
+            axios
+                .get(url, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem(
+                            'access_token'
+                        )}`,
+                    },
+                })
+                .then((response) => {
+                    this.diseaseList = response.data.data
+                })
+                .catch((error) => {
+                    this.$emit('error', error)
+                })
+        },
     fetchRecords() {
       const url = `https://ejohncarlsrizz.pythonanywhere.com/person/${this.id}/`;
       axios.get(url, {
@@ -205,6 +306,7 @@
           Authorization: `Bearer ${localStorage.getItem('access_token')}`
         }
       })
+      
       .then(response => {
         this.records = response.data.data;
         this.firstName = this.records.first_name;
@@ -214,12 +316,15 @@
         this.phoneNumber = this.records.phone_number;
         this.gender = this.records.gender;
         this.birthday = this.records.birthday;
+        this.laborList = this.records.labor;
+        this.diseaseList = this.records.disease
       })
       .catch(error => {
         this.$emit('error', error);
       });
     },
     submit() {
+     
       console.log({
         firstName: this.firstName,
         middleName: this.middleName,
@@ -227,7 +332,9 @@
         purok: this.purok,
         phoneNumber: this.phoneNumber,
         gender: this.gender,
-        birthday: this.birthday
+        birthday: this.birthday,
+        disease: this.selectedDisease,
+        labor: this.selectedLabor,
       });
 
       axios.put(`https://ejohncarlsrizz.pythonanywhere.com/person/${this.id}/`, {
@@ -237,7 +344,11 @@
           lives_at: this.purok,
           phone_number: this.phoneNumber,
           gender: this.gender,
-          birthday: this.birthday
+          birthday: this.birthday,
+          disease: this.selectedDisease,
+          labor: this.selectedLabor,
+
+
         }, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('access_token')}`
@@ -245,7 +356,7 @@
         })
         .then(response => {
           this.$emit('success');
-          window.location.reload();
+          // window.location.reload();
         })
         .catch(error => {
           this.$emit('error', error);

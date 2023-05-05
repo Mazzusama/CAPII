@@ -4,11 +4,11 @@
         <div class="bg-primary w-44 flex flex-col space-y-6">
             <div class="flex flex-row">
                 <img
-                    class="rounded-md w-12 h-12 m-4"
+                    class="rounded-md w-12 h-12 m-2"
                     src="../assets/C.A.P.I(1).png"
                 />
                 <a
-                    class="font-sans text-2xl py-6 text-white hover:text-gray-200 hover:opacity-70"
+                    class="font-sans text-2xl py-4 text-white hover:text-gray-200 hover:opacity-70"
                     >C.A.P.I
                 </a>
             </div>
@@ -60,7 +60,7 @@
                                 d="M3 18.4v-2.796a4.3 4.3 0 00.713.31A26.226 26.226 0 0012 17.25c2.892 0 5.68-.468 8.287-1.335.252-.084.49-.189.713-.311V18.4c0 1.452-1.047 2.728-2.523 2.923-2.12.282-4.282.427-6.477.427a49.19 49.19 0 01-6.477-.427C4.047 21.128 3 19.852 3 18.4z"
                             />
                         </svg>
-                        <span class="text-white font-semibold m-2">Labors</span>
+                        <span class="text-white font-semibold m-2">H.P.B.C</span>
                     </router-link>
                     <!-- DISEASES BUTTON -->
                     <router-link
@@ -132,26 +132,7 @@
                             >Records</span
                         >
                     </router-link>
-                    <!-- AGEGROUP -->
-                    <router-link
-                        tag="button"
-                        to="/agegroups"
-                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 active:bg-blue-500 py-3 px-4"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            class="w-6 h-6"
-                        >
-                            <path
-                                d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z"
-                            />
-                        </svg>
-                        <span class="text-white font-semibold m-2"
-                            >Age Group</span
-                        >
-                    </router-link>
+                    
                     <!-- LOGOUT BUTTON -->
                     <router-link
                         to="/login"
@@ -181,7 +162,7 @@
         <!-- main content -->
         <div class="flex-1">
             <!-- header -->
-            <div class="bg-white shadow px-2 py-4 text-4xl">List of Labors</div>
+            <div class="bg-white shadow px-2 py-4 text-2xl">HEALTH PROGRAM BENEFICIARY CATEGORY</div>
             <!-- content -->
             <div
                 v-if="showForm"
@@ -253,7 +234,7 @@
                                         <th
                                             class="px-4 py-2 font-semibold text-white shadow-lg"
                                         >
-                                            LABOR NAME
+                                            HPBC
                                         </th>
                                         <th
                                             class="px-4 py-2 font-semibold text-white shadow-md"
@@ -268,8 +249,13 @@
                                         <th
                                             class="px-4 py-2 font-semibold text-white shadow-md"
                                         >
-                                            ACTION
+                                            EDIT
                                         </th>
+                                        <th
+                                        class="px-4 py-2 font-semibold text-white shadow-md"
+                                    >
+                                        VIEW
+                                    </th>
                                     </tr>
                                 </thead>
 
@@ -294,7 +280,7 @@
                                                     name: 'editLabor',
                                                     params: { id: labor.id },
                                                 }"
-                                                class="px-4 py-2 bg-blue-500 rounded-lg hover:bg-blue-900"
+                                                class="px-2 py-1 bg-blue-500 rounded-lg hover:bg-blue-900"
                                                 type="button"
                                             >
                                                 <svg
@@ -312,6 +298,30 @@
                                                 </svg>
                                             </router-link>
                                         </td>
+                                        <td class="px-4 py-2">
+                                        <router-link
+                                            :to="{
+                                                name: 'ViewLabors',
+                                                params: { id: labor.id },
+                                            }"
+                                            class="px-4 py-2 bg-green-600 rounded-lg hover:bg-green-950"
+                                            type="button"
+                                            @click="
+                                                showMessageDetails(message.id)
+                                            "
+                                        >
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24"
+                                                fill="white"
+                                                class="w-6 h-6"
+                                            >
+                                                <path
+                                                    d="M12.378 1.602a.75.75 0 00-.756 0L3 6.632l9 5.25 9-5.25-8.622-5.03zM21.75 7.93l-9 5.25v9l8.628-5.032a.75.75 0 00.372-.648V7.93zM11.25 22.18v-9l-9-5.25v8.57a.75.75 0 00.372.648l8.628 5.033z"
+                                                />
+                                            </svg>
+                                        </router-link>
+                                    </td>
                                     </tr>
                                 </tbody>
                             </table>

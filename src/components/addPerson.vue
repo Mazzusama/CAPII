@@ -120,26 +120,7 @@
                                 labor.name
                             }}</span>
                         </label>
-                        <label
-                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                            for="grid-state"
-                        >
-                            Pre-Defined Labors:
-                        </label>
-                        <select
-                            v-model="preLabor"
-                            class="block appearance-none w-24 bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            type="number"
-                        >
-                            <option>Labor Force</option>
-                            <option>Unemployed</option>
-                            <option>Out of School Youth</option>
-                            <option>Out of School Children</option>
-                            <option>PWD</option>
-                            <option>OFW</option>
-                            <option>Indigenous People</option>
-                            <option>4Ps</option>
-                        </select>
+                      
                     </div>
                 </div>
                 <div class="flex flex-col">
@@ -166,29 +147,7 @@
                                 disease.name
                             }}</span>
                         </label>
-                        <label
-                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                            for="grid-state"
-                        >
-                            Pre-Defined Diseases:
-                        </label>
-                        <select
-                            v-model="preDisease"
-                            class="block appearance-none w-60 bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                        >
-                            <option>Buntis</option>
-                            <option>Nanganak</option>
-                            <option>
-                                EPI Expanded Program for Immunization for
-                                Children for age range 0-1 year old
-                            </option>
-                            <option>
-                                Family Planning Person', 'Family Planning Person
-                            </option>
-                            <option>Dengue Case</option>
-                            <option>Deaths</option>
-                            <option>WRA (Women of Reproductive Age)</option>
-                        </select>
+                        
                     </div>
                 </div>
             </div>
@@ -223,8 +182,6 @@ export default {
             birthday: '',
             gender: '',
             phone_number: '',
-            preLabor: '',
-            preDisease: '',
             purok: '',
             selectedLabor: [],
             laborList: [],
@@ -283,27 +240,11 @@ export default {
             formData.append('phone_number', this.phone_number)
             formData.append('gender', this.gender)
             formData.append('birthday', this.birthday)
-            formData.append('pre_labor', this.preLabor)
-            formData.append('pre_disease', this.preDisease)
             formData.append('disease', diseaseArr)
             formData.append('labor', laborArr)
-            axios
-                .post(
+            axios.post(
                     'https://ejohncarlsrizz.pythonanywhere.com/person/',
                     formData,
-                    {
-                        // first_name: this.firstName,
-                        // middle_name: this.middleName,
-                        // last_name: this.lastName,
-                        // lives_at: this.purok,
-                        // phone_number: this.phone_number,
-                        // gender: this.gender,
-                        // birthday: this.birthday,
-                        // pre_labor: this.preLabor,
-                        // pre_disease: this.preDisease,
-                        // disease: diseaseArr,
-                        // labor: laborArr,
-                    },
                     {
                         headers: {
                             'Content-Type': 'multipart/form-data',
