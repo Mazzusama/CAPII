@@ -120,7 +120,6 @@
                                 labor.name
                             }}</span>
                         </label>
-                      
                     </div>
                 </div>
                 <div class="flex flex-col">
@@ -147,7 +146,6 @@
                                 disease.name
                             }}</span>
                         </label>
-                        
                     </div>
                 </div>
             </div>
@@ -242,7 +240,8 @@ export default {
             formData.append('birthday', this.birthday)
             formData.append('disease', diseaseArr)
             formData.append('labor', laborArr)
-            axios.post(
+            axios
+                .post(
                     'https://ejohncarlsrizz.pythonanywhere.com/person/',
                     formData,
                     {
@@ -259,7 +258,7 @@ export default {
                     // this.selectedLabor = []; // clear selected labor options
                     // this.selectedDisease = []; // clear selected disease options
 
-                    // window.location.reload();
+                    window.location.reload()
                 })
                 .catch((error) => {
                     this.$emit('error', error)
