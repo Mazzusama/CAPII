@@ -107,7 +107,7 @@
                             />
                         </svg>
                         <span class="text-white font-semibold m-2"
-                            >Messages</span
+                            >Send Send Messages</span
                         >
                     </router-link>
                     <!-- RECORDS -->
@@ -160,7 +160,7 @@
         <!-- main content -->
         <div class="flex-1">
             <!-- header -->
-            <div class="bg-white shadow px-2 py-4">Send Messages</div>
+            <div class="bg-white shadow px-2 py-4">Send Send Messages</div>
             <!-- content -->
 
             <div class="modal">

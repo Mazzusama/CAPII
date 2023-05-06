@@ -18,7 +18,7 @@
                                 v-model="firstName"
                                 class="block w-auto p-2 my-3 border-gray-200 border-2 rounded-md placeholder:text-gray-400 placeholder:text-start focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                 type="text"
-                                placeholder="firstName"
+                                placeholder="First Name"
                         /></label>
                         <label
                             >Last Name
@@ -50,6 +50,7 @@
                                 v-model="gender"
                                 class="block appearance-none w-auto bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                             >
+                                <option value="">Choose...</option>
                                 <option value="M">Male</option>
                                 <option value="F">Female</option>
                             </select>
@@ -64,9 +65,7 @@
                             <input
                                 v-model="phone_number"
                                 class="block appearance-none w-auto bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                placeholder="09123456789"
-                                type="tel"
-                                length="11"
+                                type="text"
                             />
                         </div>
                         <div class="flex flex-col">

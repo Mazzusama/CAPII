@@ -4,11 +4,11 @@
         <div class="bg-primary w-44 flex flex-col space-y-6">
             <div class="flex flex-row">
                 <img
-                    class="rounded-md w-12 h-12 m-4"
+                    class="rounded-md w-12 h-12 m-2"
                     src="../assets/C.A.P.I(1).png"
                 />
                 <a
-                    class="font-sans text-2xl py-6 text-white hover:text-gray-200 hover:opacity-70"
+                    class="font-sans text-2xl py-4 text-white hover:text-gray-200 hover:opacity-70"
                     >C.A.P.I
                 </a>
             </div>
@@ -107,7 +107,7 @@
                             />
                         </svg>
                         <span class="text-white font-semibold m-2"
-                            >Messages</span
+                            >Send Messages</span
                         >
                     </router-link>
 
@@ -411,3 +411,50 @@ export default {
     },
 }
 </script>
+<style>
+/* default styles */
+.relative {
+    position: relative;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.min-h-screen {
+    min-height: 100vh;
+}
+
+.space-y-6 > * + * {
+    margin-top: 1.5rem;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+/* responsive styles */
+@media (min-width: 640px) {
+    /* screen size larger than or equal to 640px */
+    .sm:flex-row {
+        flex-direction: row;
+    }
+
+    .sm:space-y-6 > * + * {
+        margin-top: 0;
+        margin-left: 1.5rem;
+    }
+
+    .sm:w-44 {
+        width: 44px;
+    }
+}
+</style>

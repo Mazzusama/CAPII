@@ -108,7 +108,7 @@
                             />
                         </svg>
                         <span class="text-white font-semibold m-2"
-                            >Messages</span
+                            >Send Messages</span
                         >
                     </router-link>
 
