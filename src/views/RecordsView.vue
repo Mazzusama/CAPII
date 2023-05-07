@@ -4,39 +4,35 @@
         <div class="bg-primary w-44 flex flex-col space-y-6">
             <div class="flex flex-row">
                 <img
-                    class="rounded-md w-12 h-12 m-4"
+                    class="rounded-md w-12 h-12 m-2"
                     src="../assets/C.A.P.I(1).png"
                 />
                 <a
-                    class="font-sans text-2xl py-6 text-white hover:text-gray-200 hover:opacity-70"
+                    class="font-sans text-2xl py-4 text-white hover:text-gray-200 hover:opacity-70"
                     >C.A.P.I
                 </a>
             </div>
 
             <div>
                 <nav class="sidebar-nav">
-                    <!-- DASHBOARD BUTTON -->
+                    <!-- RECORDS -->
                     <router-link
                         tag="button"
-                        to="/home"
-                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 active:bg-blue-500 py-2 px-3"
+                        to="/records"
+                        class="text-white flex items-center space-x-2 bg-blue-500 py-2 px-3"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
                             fill="currentColor"
-                            class="w-6 h-6"
+                            class="w-5 h-5"
                         >
                             <path
-                                d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z"
-                            />
-                            <path
-                                d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 
-                00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z"
+                                d="M4.5 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM14.25 8.625a3.375 3.375 0 116.75 0 3.375 3.375 0 01-6.75 0zM1.5 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM17.25 19.128l-.001.144a2.25 2.25 0 01-.233.96 10.088 10.088 0 005.06-1.01.75.75 0 00.42-.643 4.875 4.875 0 00-6.957-4.611 8.586 8.586 0 011.71 5.157v.003z"
                             />
                         </svg>
                         <span class="text-white font-semibold m-2"
-                            >Dashboard</span
+                            >Records</span
                         >
                     </router-link>
                     <!-- LABORS BUTTON -->
@@ -60,7 +56,9 @@
                                 d="M3 18.4v-2.796a4.3 4.3 0 00.713.31A26.226 26.226 0 0012 17.25c2.892 0 5.68-.468 8.287-1.335.252-.084.49-.189.713-.311V18.4c0 1.452-1.047 2.728-2.523 2.923-2.12.282-4.282.427-6.477.427a49.19 49.19 0 01-6.477-.427C4.047 21.128 3 19.852 3 18.4z"
                             />
                         </svg>
-                        <span class="text-white font-semibold m-2">Labors</span>
+                        <span class="text-white font-semibold m-2"
+                            >H.P.B.C</span
+                        >
                     </router-link>
                     <!-- DISEASES BUTTON -->
                     <router-link
@@ -86,7 +84,7 @@
                             />
                         </svg>
                         <span class="text-white font-semibold m-2"
-                            >Diseases</span
+                            >Health Cases</span
                         >
                     </router-link>
                     <!-- MESSAGES BUTTON -->
@@ -109,49 +107,10 @@
                             />
                         </svg>
                         <span class="text-white font-semibold m-2"
-                            >Messages</span
+                            >Send Messages</span
                         >
                     </router-link>
-                    <!-- RECORDS -->
-                    <router-link
-                        tag="button"
-                        to="/records"
-                        class="text-white flex items-center space-x-2 bg-blue-500 py-2 px-3"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            class="w-5 h-5"
-                        >
-                            <path
-                                d="M4.5 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM14.25 8.625a3.375 3.375 0 116.75 0 3.375 3.375 0 01-6.75 0zM1.5 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM17.25 19.128l-.001.144a2.25 2.25 0 01-.233.96 10.088 10.088 0 005.06-1.01.75.75 0 00.42-.643 4.875 4.875 0 00-6.957-4.611 8.586 8.586 0 011.71 5.157v.003z"
-                            />
-                        </svg>
-                        <span class="text-white font-semibold m-2"
-                            >Records</span
-                        >
-                    </router-link>
-                    <!-- AGEGROUP -->
-                    <router-link
-                        tag="button"
-                        to="/agegroups"
-                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 active:bg-blue-500 py-2 px-3"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            class="w-5 h-5"
-                        >
-                            <path
-                                d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z"
-                            />
-                        </svg>
-                        <span class="text-white font-semibold m-2"
-                            >Age Group</span
-                        >
-                    </router-link>
+
                     <!-- LOGOUT BUTTON -->
                     <router-link
                         to="/login"
@@ -196,33 +155,17 @@
                         <div
                             class="flex flex-row p-4 bg-secondary rounded-t-lg"
                         >
-                            <label class="relative block">
-                                <span class="sr-only">Search</span>
-                                <span
-                                    class="absolute inset-y-0 left-0 flex items-center pl-2"
-                                >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke-width="1.5"
-                                        class="w-5 h-5 stroke-slate-400"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                                        />
-                                    </svg>
-                                </span>
-                                <input
-                                    class="placeholder:italic block font-semibold bg-sky-200 w-full border border-blue-600 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-                                    placeholder="Search for anything..."
-                                    type="text"
-                                    name="search"
-                                />
-                            </label>
+                            <input
+                                v-model="searchQuery"
+                                @keydown.enter.prevent="fetchData"
+                                class="placeholder:italic block font-semibold bg-sky-200 w-full border border-blue-600 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+                                placeholder="Search for people here..."
+                                type="text"
+                                name="search"
+                            />
+
                             <button
+                                @click.prevent="fetchData"
                                 class="rounded-lg bg-blue-600 font-sans text-sm text-white p-2 font-semibold mx-2 shadow-md hover:bg-blue-900"
                             >
                                 Search
@@ -235,7 +178,7 @@
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 24 24"
                                     fill="currentColor"
-                                    class="w-6 h-6"
+                                    class="w-5 h-5"
                                 >
                                     <path
                                         d="M6.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM3.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM19.75 7.5a.75.75 0 00-1.5 0v2.25H16a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H22a.75.75 0 000-1.5h-2.25V7.5z"
@@ -287,8 +230,8 @@
                                 </thead>
                                 <tbody>
                                     <tr
-                                        class="odd:bg-white even:bg-slate-50 divide-x"
-                                        v-for="person in personList"
+                                        class="odd:bg-white even:bg-slate-100 divide-x"
+                                        v-for="person in filteredPeople"
                                         :key="person.id"
                                     >
                                         <td class="px-4 py-2">
@@ -308,16 +251,22 @@
                                         <td class="px-4 py-1">
                                             <router-link
                                                 :to="{
-                                                    name: 'EditRecords',
+                                                    name: 'ViewProfile',
                                                     params: { id: person.id },
                                                 }"
+                                                class="px-3 py-2 bg-green-600 rounded-lg hover:bg-green-950"
                                                 type="button"
-                                                class="px-4 py-2 bg-green-500 rounded-lg hover:bg-green-950"
-                                                ><svg
+                                                @click="
+                                                    showMessageDetails(
+                                                        message.id
+                                                    )
+                                                "
+                                            >
+                                                <svg
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     viewBox="0 0 24 24"
                                                     fill="white"
-                                                    class="w-6 h-6"
+                                                    class="w-5 h-5"
                                                 >
                                                     <path
                                                         fill-rule="evenodd"
@@ -334,12 +283,12 @@
                                                     params: { id: person.id },
                                                 }"
                                                 type="button"
-                                                class="px-4 py-2 bg-blue-500 rounded-lg hover:bg-blue-900"
+                                                class="px-3 py-2 bg-blue-500 rounded-lg hover:bg-blue-900"
                                                 ><svg
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     viewBox="0 0 24 24"
                                                     fill="white"
-                                                    class="w-6 h-6 mx-auto"
+                                                    class="w-5 h-5 mx-auto"
                                                 >
                                                     <path
                                                         d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z"
@@ -378,12 +327,58 @@ export default {
         return {
             personList: [],
             showForm: false,
+            searchQuery: [],
+            purok: [],
         }
     },
     created() {
         this.authenticate()
+        this.fetchData()
+    },
+    computed: {
+        filteredPeople() {
+            if (this.searchQuery === '') {
+                return this.personList
+            } else {
+                return this.personList.filter(
+                    (person) =>
+                        person.first_name
+                            .toLowerCase()
+                            .includes(this.searchQuery.toLowerCase()) ||
+                        person.middle_name
+                            .toLowerCase()
+                            .includes(this.searchQuery.toLowerCase()) ||
+                        person.last_name
+                            .toLowerCase()
+                            .includes(this.searchQuery.toLowerCase()) ||
+                        person.lives_at
+                            .toLowerCase()
+                            .includes(this.searchQuery.toLowerCase())
+                )
+            }
+        },
     },
     methods: {
+        fetchData() {
+            this.searchQuery = ''
+            const url = `https://ejohncarlsrizz.pythonanywhere.com/search/?search=${this.searchQuery}`
+
+            axios
+                .get(url, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${localStorage.getItem(
+                            'access_token'
+                        )}`,
+                    },
+                })
+                .then((response) => {
+                    this.persons = response.data.data.persons
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+        },
         logout() {
             this.$store.dispatch('user/logout')
         },
@@ -416,3 +411,50 @@ export default {
     },
 }
 </script>
+<style>
+/* default styles */
+.relative {
+    position: relative;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.min-h-screen {
+    min-height: 100vh;
+}
+
+.space-y-6 > * + * {
+    margin-top: 1.5rem;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+/* responsive styles */
+@media (min-width: 640px) {
+    /* screen size larger than or equal to 640px */
+    .sm:flex-row {
+        flex-direction: row;
+    }
+
+    .sm:space-y-6 > * + * {
+        margin-top: 0;
+        margin-left: 1.5rem;
+    }
+
+    .sm:w-44 {
+        width: 44px;
+    }
+}
+</style>

@@ -7,42 +7,53 @@
             <h1 class="text-white text-lg font-bold p-4 bg-primary w-full">
                 VIEW DISEASE
             </h1>
-            <form @submit.prevent="submit">
-                <h1 class="Text-md m-2">Current Disease name:</h1>
-                <p
-                    class="font-semibold p-1 bg-blue-400 text-sm m-2 rounded-full text-center"
+
+            <h1 class="Text-md m-2">Current Disease name:</h1>
+            <p
+                class="font-semibold p-1 bg-blue-400 text-sm m-2 rounded-full text-center"
+            >
+                {{ displayDisease.disease_name }}
+            </p>
+            <div>
+                <label
+                    class="block text-sm font-bold text-white w-full"
+                    for="name"
                 >
-                    {{ displayDisease.disease_name }}
-                </p>
-                <div>
-                    <label
-                        class="block text-sm font-bold text-white w-full"
-                        for="name"
-                    >
-                        Name of Disease
-                    </label>
-                </div>
-            </form>
+                    Name of Disease
+                </label>
+            </div>
         </div>
-        <div class="w-1/2 border-1 border-gray-500 p-2 bg-gray-200 m-10">
-            <table class="p-5">
+
+        <div class="border-1 border-gray-500 p-2 bg-gray-200 rounded-md">
+            <!-- search -->
+            <div class="p-1 bg-blue-300 rounded-t-md flex flex-row">
+                <input
+                    v-model="searchQuery"
+                    @keydown.enter.prevent="fetchData"
+                    class="placeholder:italic block font-semibold bg-sky-200 w-full border border-blue-600 rounded-md py-2 pl-7 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+                    placeholder="Search for people..."
+                    type="text"
+                />
+                <button
+                    @click.prevent="fetchData"
+                    class="rounded-lg bg-blue-600 font-sans text-sm text-white p-2 font-semibold mx-2 shadow-md hover:bg-blue-900"
+                >
+                    Search
+                </button>
+            </div>
+
+            <table class="border-2 border-t-emerald-700">
                 <thead class="bg-green-600 font-semibold text-center">
                     <tr class="divide-x">
                         <th
                             class="px-4 py-2 font-semibold text-white shadow-lg"
                         >
-                            PEOPLE WITH DISEASE
+                            People with this Health Case
                         </th>
-
                         <th
                             class="px-4 py-2 font-semibold text-white shadow-md"
                         >
                             VIEW
-                        </th>
-                        <th
-                            class="px-4 py-2 font-semibold text-white shadow-md"
-                        >
-                            SEND SMS
                         </th>
                     </tr>
                 </thead>
@@ -50,8 +61,8 @@
                 <tbody>
                     <tr
                         class="odd:bg-white even:bg-slate-50 divide-x"
-                        v-for="person in deceased"
-                        :key="person.disease_name"
+                        v-for="person in filteredPeople"
+                        :key="person.id"
                     >
                         <td class="px-4 py-2">
                             {{ person.first_name }} {{ person.middle_name }}
@@ -81,6 +92,8 @@ export default {
     data() {
         return {
             deceased: [],
+            persons: [],
+            searchQuery: [],
             displayDiseaseName: [],
             displayDisease: [],
             disease: null,
@@ -89,10 +102,29 @@ export default {
     },
     created() {
         this.fetchDisease()
+        HEAD
     },
     methods: {
-        fetchDisease() {
-            const url = `https://ejohncarlsrizz.pythonanywhere.com/disease/${this.id}/`
+        filteredPeople() {
+            return this.deceased.filter(
+                (person) =>
+                    person.first_name
+                        .toLowerCase()
+                        .includes(this.searchQuery.toLowerCase()) ||
+                    person.middle_name
+                        .toLowerCase()
+                        .includes(this.searchQuery.toLowerCase()) ||
+                    person.last_name
+                        .toLowerCase()
+                        .includes(this.searchQuery.toLowerCase())
+            )
+        },
+    },
+    methods: {
+        fetchData() {
+            this.searchQuery = ''
+            const url = `https://ejohncarlsrizz.pythonanywhere.com/disease/${this.id}/?search=${this.searchQuery}`
+
             axios
                 .get(url, {
                     headers: {
@@ -103,20 +135,32 @@ export default {
                     },
                 })
                 .then((response) => {
-                    const persons = response.data.data.persons
-
-                    // Filter persons with matching disease id
-                    const filteredPersons = persons.filter((person) =>
-                        person.disease.includes(this.id)
-                    )
-
-                    this.deceased = filteredPersons
-                    this.displayDiseaseName = response.data.data
-                    this.displayDisease = response.data.data
+                    this.persons = response.data.data.persons
                 })
                 .catch((error) => {
-                    this.$emit('error', error)
+                    console.log(error)
                 })
+        },
+
+        fetchDisease() {
+            const url =
+                `https://ejohncarlsrizz.pythonanywhere.com/disease/${this.id}/`
+                    .get(url, {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            Authorization: `Bearer ${localStorage.getItem(
+                                'access_token'
+                            )}`,
+                        },
+                    })
+                    .then((response) => {
+                        this.deceased = response.data.data.persons
+                        this.displayDiseaseName = response.data.data
+                        this.displayDisease = response.data.data
+                    })
+                    .catch((error) => {
+                        this.$emit('error', error)
+                    })
         },
     },
 }

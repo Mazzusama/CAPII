@@ -15,10 +15,10 @@
 
             <div>
                 <nav class="sidebar-nav">
-                    <!-- DASHBOARD BUTTON -->
+                    <!-- RECORDS -->
                     <router-link
                         tag="button"
-                        to="/home"
+                        to="/records"
                         class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 active:bg-blue-500 py-3 px-4"
                     >
                         <svg
@@ -28,17 +28,14 @@
                             class="w-6 h-6"
                         >
                             <path
-                                d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z"
-                            />
-                            <path
-                                d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 
-                00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z"
+                                d="M4.5 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM14.25 8.625a3.375 3.375 0 116.75 0 3.375 3.375 0 01-6.75 0zM1.5 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM17.25 19.128l-.001.144a2.25 2.25 0 01-.233.96 10.088 10.088 0 005.06-1.01.75.75 0 00.42-.643 4.875 4.875 0 00-6.957-4.611 8.586 8.586 0 011.71 5.157v.003z"
                             />
                         </svg>
                         <span class="text-white font-semibold m-2"
-                            >Dashboard</span
+                            >Records</span
                         >
                     </router-link>
+
                     <!-- LABORS BUTTON -->
                     <router-link
                         tag="button"
@@ -60,7 +57,9 @@
                                 d="M3 18.4v-2.796a4.3 4.3 0 00.713.31A26.226 26.226 0 0012 17.25c2.892 0 5.68-.468 8.287-1.335.252-.084.49-.189.713-.311V18.4c0 1.452-1.047 2.728-2.523 2.923-2.12.282-4.282.427-6.477.427a49.19 49.19 0 01-6.477-.427C4.047 21.128 3 19.852 3 18.4z"
                             />
                         </svg>
-                        <span class="text-white font-semibold m-2">Labors</span>
+                        <span class="text-white font-semibold m-2"
+                            >H.P.B.C</span
+                        >
                     </router-link>
                     <!-- DISEASES BUTTON -->
                     <router-link
@@ -86,7 +85,7 @@
                             />
                         </svg>
                         <span class="text-white font-semibold m-2"
-                            >Diseases</span
+                            >Health Cases</span
                         >
                     </router-link>
                     <!-- MESSAGES BUTTON -->
@@ -109,49 +108,10 @@
                             />
                         </svg>
                         <span class="text-white font-semibold m-2"
-                            >Messages</span
+                            >Send Messages</span
                         >
                     </router-link>
-                    <!-- RECORDS -->
-                    <router-link
-                        tag="button"
-                        to="/records"
-                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 active:bg-blue-500 py-3 px-4"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            class="w-6 h-6"
-                        >
-                            <path
-                                d="M4.5 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM14.25 8.625a3.375 3.375 0 116.75 0 3.375 3.375 0 01-6.75 0zM1.5 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM17.25 19.128l-.001.144a2.25 2.25 0 01-.233.96 10.088 10.088 0 005.06-1.01.75.75 0 00.42-.643 4.875 4.875 0 00-6.957-4.611 8.586 8.586 0 011.71 5.157v.003z"
-                            />
-                        </svg>
-                        <span class="text-white font-semibold m-2"
-                            >Records</span
-                        >
-                    </router-link>
-                    <!-- AGEGROUP -->
-                    <router-link
-                        tag="button"
-                        to="/agegroups"
-                        class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 active:bg-blue-500 py-3 px-4"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            class="w-6 h-6"
-                        >
-                            <path
-                                d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z"
-                            />
-                        </svg>
-                        <span class="text-white font-semibold m-2"
-                            >Age Group</span
-                        >
-                    </router-link>
+
                     <!-- LOGOUT BUTTON -->
                     <router-link
                         to="/login"
@@ -183,10 +143,10 @@
             <!-- header -->
             <div class="bg-white shadow px-2 py-4">Send Messages</div>
             <!-- content -->
-            <div
-                class="outline-2 outline-slate-100 max-w-screen rounded-lg flex"
-            >
-                <div class="">
+            <div class="flex items-center flex-col p-5 bg-slate-200">
+                <div
+                    class="grid my-2 grid-cols-1 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5 w-full"
+                >
                     <router-link
                         type="button"
                         class="p-2 text-white font-semibold text-sm bg-primary hover:bg-blue-950"
@@ -218,6 +178,8 @@
                         to="/smsHistory"
                         >View SMS History</router-link
                     >
+                </div>
+                <div class="w-full my-2">
                     <form @submit.prevent="submit">
                         <div class="mb-4 w-full">
                             <label

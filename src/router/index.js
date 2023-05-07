@@ -1,11 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Splash from '../views/splash.vue'
-import Home from '../views/homeview.vue'
+
 import Login from '../views/loginView.vue'
 import Records from '../views/RecordsView.vue'
 import store from '../../store/'
 import Labors from '../views/LaborsForm.vue'
-import ageGroups from '../views/ageGroup.vue'
 import Disease from '../views/DiseasesForm.vue'
 import editLabor from '../components/editLabor.vue'
 import editDisease from '../components/editDisease.vue'
@@ -26,12 +25,7 @@ import axios from 'axios'
 const routes = [
     { path: '/', name: 'splashScreen', component: Splash },
     { path: '/login', name: 'loginScreen', component: Login },
-    {
-        path: '/home',
-        name: 'Home',
-        component: Home,
-        beforeEnter: authMiddleware,
-    },
+
     {
         path: '/records',
         name: 'records',
@@ -74,12 +68,7 @@ const routes = [
         component: ViewLabors,
         beforeEnter: authMiddleware,
     },
-    {
-        path: '/agegroups',
-        name: 'AgeGroup',
-        component: ageGroups,
-        beforeEnter: authMiddleware,
-    },
+
     {
         path: '/editRecords/:id',
         name: 'EditRecords',
