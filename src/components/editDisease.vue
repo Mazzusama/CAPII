@@ -1,6 +1,6 @@
 <template>
     <Navbar />
-    <div class="flex items-center justify-center h-screen">
+    <div class="flex justify-center m-5">
         <div
             class="w-80 px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10 flex items-center flex-col justify-center"
         >

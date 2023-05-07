@@ -68,6 +68,29 @@
                             {{ person.first_name }} {{ person.middle_name }}
                             {{ person.last_name }}
                         </td>
+                        <td class="px-4 py-1">
+                            <router-link
+                                :to="{
+                                    name: 'ViewProfile',
+                                    params: { id: person.id },
+                                }"
+                                class="px-3 py-2 bg-green-600 rounded-lg hover:bg-green-950"
+                                type="button"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="white"
+                                    class="w-5 h-5"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
+                                        clip-rule="evenodd"
+                                    />
+                                </svg>
+                            </router-link>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -78,7 +101,6 @@
 <script>
 import axios from 'axios'
 import Navbar from '../components/Navbar.vue'
-
 export default {
     components: {
         Navbar,
@@ -102,9 +124,9 @@ export default {
     },
     created() {
         this.fetchDisease()
-        HEAD
+        this.fetchData()
     },
-    methods: {
+    computed: {
         filteredPeople() {
             return this.deceased.filter(
                 (person) =>
@@ -124,7 +146,6 @@ export default {
         fetchData() {
             this.searchQuery = ''
             const url = `https://ejohncarlsrizz.pythonanywhere.com/disease/${this.id}/?search=${this.searchQuery}`
-
             axios
                 .get(url, {
                     headers: {
@@ -141,26 +162,25 @@ export default {
                     console.log(error)
                 })
         },
-
         fetchDisease() {
-            const url =
-                `https://ejohncarlsrizz.pythonanywhere.com/disease/${this.id}/`
-                    .get(url, {
-                        headers: {
-                            'Content-Type': 'application/json',
-                            Authorization: `Bearer ${localStorage.getItem(
-                                'access_token'
-                            )}`,
-                        },
-                    })
-                    .then((response) => {
-                        this.deceased = response.data.data.persons
-                        this.displayDiseaseName = response.data.data
-                        this.displayDisease = response.data.data
-                    })
-                    .catch((error) => {
-                        this.$emit('error', error)
-                    })
+            const url = `https://ejohncarlsrizz.pythonanywhere.com/disease/${this.id}/`
+            axios
+                .get(url, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${localStorage.getItem(
+                            'access_token'
+                        )}`,
+                    },
+                })
+                .then((response) => {
+                    this.deceased = response.data.data.persons
+                    this.displayDiseaseName = response.data.data
+                    this.displayDisease = response.data.data
+                })
+                .catch((error) => {
+                    this.$emit('error', error)
+                })
         },
     },
 }

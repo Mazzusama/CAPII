@@ -1,9 +1,9 @@
 <template>
     <div>
         <Navbar />
-        <div class="flex items-center justify-center h-screen">
+        <div class="flex m-10 justify-center">
             <div
-                class="w-80 px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10 flex items-center flex-col justify-center"
+                class="w-80 px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10"
             >
                 <h1 class="text-white text-lg font-bold p-4 bg-primary w-full">
                     EDIT LABOR

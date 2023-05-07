@@ -1,13 +1,13 @@
 <template>
     <Navbar />
-    <div class="flex items-center m-10">
+    <div class="flex items-center m-5">
         <div
             class="w-80 px-6 py-2 bg-white rounded shadow-md ring-1 ring-gray-900/10 flex items-center flex-col justify-center"
         >
             <h1
                 class="text-white text-lg font-bold p-4 text-center bg-primary w-full"
             >
-                EDIT HEALTH PROGRAM BENEFICIARY CATEGORY (Labors)
+                HEALTH PROGRAM BENEFICIARY CATEGORY (H.P.B.C)
             </h1>
 
             <h1 class="Text-md m-2">Current HPBC name:</h1>
@@ -78,7 +78,6 @@
                                 }"
                                 class="px-3 py-2 bg-green-600 rounded-lg hover:bg-green-950"
                                 type="button"
-                                @click="showMessageDetails(message.id)"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -129,11 +128,10 @@ export default {
     created() {
         this.fetchLabor()
         this.fetchData()
-        this.authenticate()
     },
     computed: {
         filteredPeople() {
-            return this.LaborName.filter(
+            return this.persons.filter(
                 (person) =>
                     person.first_name
                         .toLowerCase()
@@ -168,27 +166,7 @@ export default {
                     console.log(error)
                 })
         },
-        authenticate() {
-            const axiosInstance = axios.create({
-                baseURL: 'https://ejohncarlsrizz.pythonanywhere.com/',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${localStorage.getItem(
-                        'access_token'
-                    )}`,
-                },
-            })
-            axiosInstance
-                .get('person/')
-                .then((response) => {
-                    console.log('DATA', response.data.data)
-                    this.$store.commit('user/setUser', response.data.data)
-                    this.LaborName = response.data.data
-                })
-                .catch((error) => {
-                    console.log(error)
-                })
-        },
+
         fetchLabor() {
             const url = `https://ejohncarlsrizz.pythonanywhere.com/labor/${this.id}/`
             axios

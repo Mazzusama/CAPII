@@ -256,11 +256,6 @@
                                                 }"
                                                 class="px-3 py-2 bg-green-600 rounded-lg hover:bg-green-950"
                                                 type="button"
-                                                @click="
-                                                    showMessageDetails(
-                                                        message.id
-                                                    )
-                                                "
                                             >
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
