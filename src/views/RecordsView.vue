@@ -322,7 +322,7 @@ export default {
             personList: [],
             showForm: false,
             searchQuery: [],
-            isLoading: false,
+
             purok: [],
         }
     },
@@ -357,17 +357,6 @@ export default {
         },
     },
     methods: {
-        async handleLogoutClick() {
-            try {
-                this.isLoading = true
-                await this.$store.dispatch('user/logout')
-                this.$toast.show('Logged out successfully')
-            } catch (error) {
-                console.error(error)
-            } finally {
-                this.isLoading = false
-            }
-        },
         fetchData() {
             this.searchQuery = ''
             const url = `https://ejohncarlsrizz.pythonanywhere.com/search/?search=${this.searchQuery}`
