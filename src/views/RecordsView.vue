@@ -89,8 +89,8 @@
                     </router-link>
                     <!-- MESSAGES BUTTON -->
                     <router-link
-                        tag="button"
-                        to="/sms"
+                        to="/login"
+                        @click="handleLogoutClick"
                         class="text-white flex items-center space-x-2 bg-blue-800 hover:bg-blue-500 active:bg-blue-500 py-2 px-3"
                     >
                         <svg
@@ -100,15 +100,14 @@
                             class="w-5 h-5"
                         >
                             <path
-                                d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"
-                            />
-                            <path
-                                d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"
+                                fill-rule="evenodd"
+                                d="M7.5 3.75A1.5 1.5 0 006 5.25v13.5a1.5 1.5 0 001.5 1.5h6a1.5 1.5 0 001.5-1.5V15a.75.75 0 011.5 0v3.75a3 3 0 01-3 3h-6a3 3 0 01-3-3V5.25a3 3 0 013-3h6a3 3 0 013 3V9A.75.75 0 0115 9V5.25a1.5 1.5 0 00-1.5-1.5h-6zm5.03 4.72a.75.75 0 010 1.06l-1.72 1.72h10.94a.75.75 0 010 1.5H10.81l1.72 1.72a.75.75 0 11-1.06 1.06l-3-3a.75.75 0 010-1.06l3-3a.75.75 0 011.06 0z"
+                                clip-rule="evenodd"
                             />
                         </svg>
-                        <span class="text-white font-semibold m-2"
-                            >Send Messages</span
-                        >
+                        <span class="text-white font-semibold m-2">
+                            {{ isLoading ? 'Logging out...' : 'Log out' }}
+                        </span>
                     </router-link>
 
                     <!-- LOGOUT BUTTON -->
@@ -323,6 +322,7 @@ export default {
             personList: [],
             showForm: false,
             searchQuery: [],
+            isLoading: false,
             purok: [],
         }
     },
@@ -349,11 +349,25 @@ export default {
                         person.lives_at
                             .toLowerCase()
                             .includes(this.searchQuery.toLowerCase())
+                    // person.phone_number
+                    //     .toLowerCase()
+                    //     .includes(this.searchQuery.toLowerCase())
                 )
             }
         },
     },
     methods: {
+        async handleLogoutClick() {
+            try {
+                this.isLoading = true
+                await this.$store.dispatch('user/logout')
+                this.$toast.show('Logged out successfully')
+            } catch (error) {
+                console.error(error)
+            } finally {
+                this.isLoading = false
+            }
+        },
         fetchData() {
             this.searchQuery = ''
             const url = `https://ejohncarlsrizz.pythonanywhere.com/search/?search=${this.searchQuery}`

@@ -24,7 +24,12 @@ import axios from 'axios'
 
 const routes = [
     { path: '/', name: 'splashScreen', component: Splash },
-    { path: '/login', name: 'loginScreen', component: Login },
+    {
+        path: '/login',
+        name: 'loginScreen',
+        component: Login,
+        beforeEnter: guestMiddleware,
+    },
 
     {
         path: '/records',
@@ -128,7 +133,7 @@ function authMiddleware(to, from, next) {
         return next('/login')
     } else {
         axios
-            .get(`https://ejohncarlsrizz.pythonanywhere.com/labor/`, {
+            .get(`https://ejohncarlsrizz.pythonanywhere.com/person/`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -139,9 +144,23 @@ function authMiddleware(to, from, next) {
             })
             .catch((error) => {
                 console.log(error)
-                next('/login')
+                if (error.response && error.response.status === 401) {
+                    localStorage.removeItem('access_token')
+                    return next('/login')
+                } else {
+                    return next('/login')
+                }
             })
     }
+}
+function guestMiddleware(to, from, next) {
+    const token = localStorage.getItem('access_token')
+
+    if (token) {
+        return next({ name: 'records' }) // or whatever your dashboard/home page is called
+    }
+
+    next()
 }
 
 export default router

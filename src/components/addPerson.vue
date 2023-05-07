@@ -254,15 +254,17 @@ export default {
                     }
                 )
                 .then((response) => {
-                    this.$emit('success')
-                    // this.selectedLabor = []; // clear selected labor options
-                    // this.selectedDisease = []; // clear selected disease options
-
-                    window.location.reload()
+                    console.log(response)
+                    if (response.data.status === '201') {
+                        this.$toast.success(response.data.message)
+                    } else if (response.status === '400') {
+                        this.$toast.error(response.data.Message)
+                    }
                 })
-                .catch((error) => {
-                    this.$emit('error', error)
-                })
+            // .catch((error) => {
+            //     console.log(error.response)
+            //     this.$toast.error(error.response.data.Message)
+            // })
         },
         cancel() {
             this.$emit('cancel')

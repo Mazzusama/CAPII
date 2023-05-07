@@ -282,10 +282,12 @@ export default {
                     }
                 )
                 .then((response) => {
-                    this.$emit('success')
-                })
-                .catch((error) => {
-                    this.$emit('error', error)
+                    console.log(response)
+                    if (response.data.status === '200') {
+                        this.$toast.success(response.data.message)
+                    } else if (response.data.status === '400') {
+                        this.$toast.error(response.data.message)
+                    }
                 })
         },
     },

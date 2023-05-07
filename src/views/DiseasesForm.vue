@@ -63,7 +63,7 @@
                     <!-- DISEASES BUTTON -->
                     <router-link
                         tag="button"
-                        to="/agegroups"
+                        to="/disease"
                         class="text-white flex items-center space-x-2 bg-blue-500 py-3 px-4"
                     >
                         <svg

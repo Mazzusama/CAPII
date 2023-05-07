@@ -117,11 +117,12 @@ export default {
                     }
                 )
                 .then((response) => {
-                    this.$emit('success', response.data.Message)
-                    this.$router.push('/disease')
-                })
-                .catch((error) => {
-                    this.$emit('error', error)
+                    console.log(response)
+                    if (response.data.status === '200') {
+                        this.$toast.success(response.data.Message)
+                    } else if (response.data.status === '400') {
+                        this.$toast.error(response.data.Message)
+                    }
                 })
         },
         deleteDisease() {
@@ -136,11 +137,11 @@ export default {
                     },
                 })
                 .then((response) => {
-                    this.$emit('success')
-                    this.$router.push('/disease')
-                })
-                .catch((error) => {
-                    this.$emit('error', error)
+                    console.log(response)
+                    if (response.data.status === '204') {
+                        this.$toast.success(response.data.Message)
+                        this.$router.go(-1)
+                    }
                 })
         },
         cancel() {

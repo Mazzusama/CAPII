@@ -63,7 +63,7 @@
                                 Phone Number
                             </label>
                             <input
-                                v-model="phone_number"
+                                v-model="phoneNumber"
                                 class="block appearance-none w-auto bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                 type="text"
                             />
@@ -78,7 +78,6 @@
                             <select
                                 v-model="purok"
                                 class="block appearance-none w-auto bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                type="number"
                             >
                                 <option>Purok 1</option>
                                 <option>Purok 2</option>
@@ -293,7 +292,7 @@ export default {
                 middleName: this.middleName,
                 lastName: this.lastName,
                 purok: this.purok,
-                phoneNumber: this.phoneNumber,
+                phoneNumber: this.PhoneNumber,
                 gender: this.gender,
                 birthday: this.birthday,
                 disease: this.selectedDisease,
@@ -323,11 +322,19 @@ export default {
                     }
                 )
                 .then((response) => {
-                    this.$emit('success')
-                    // window.location.reload();
-                })
-                .catch((error) => {
-                    this.$emit('error', error)
+                    console.log(response)
+                    if (response.data.status === '200') {
+                        this.$toast.success(response.data.message)
+                    } else if (
+                        response.data.message ===
+                        'This phone number is already registered'
+                    ) {
+                        this.$toast.error(response.data.message)
+                    } else if (
+                        response.data.message === 'Validation errors occurred'
+                    ) {
+                        this.$toast.error(response.data.errors.birthday[0])
+                    }
                 })
         },
         deleteRecord() {
@@ -342,11 +349,11 @@ export default {
                     },
                 })
                 .then((response) => {
-                    this.$emit('success')
-                    this.$router.push('/records')
-                })
-                .catch((error) => {
-                    this.$emit('error', error)
+                    console.log(response)
+                    if (response.data.status === '204') {
+                        this.$toast.success(response.data.message)
+                        this.$router.go(-1)
+                    }
                 })
         },
         cancel() {

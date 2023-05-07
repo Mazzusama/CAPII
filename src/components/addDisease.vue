@@ -9,7 +9,7 @@
                 </label>
                 <input
                     v-model="diseaseName"
-                    class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-center focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                    class="block w-full p-1 mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-center focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     type="text"
                     placeholder="Input disease name here"
                 />
@@ -59,11 +59,16 @@ export default {
                     }
                 )
                 .then((response) => {
-                    this.$emit('success')
-                    window.location.reload()
-                })
-                .catch((error) => {
-                    this.$emit('error', error)
+                    console.log(response)
+                    if (response.data.status === '201') {
+                        this.$toast.success(response.data.Message)
+                    } else if (response.data.status === '400') {
+                        let errorMessage = ''
+                        response.data.errors.name.forEach((error) => {
+                            errorMessage += error + '\n'
+                        })
+                        this.$toast.error(errorMessage)
+                    }
                 })
         },
         cancel() {
