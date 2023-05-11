@@ -279,8 +279,6 @@ export default {
                     this.phoneNumber = this.records.phone_number
                     this.gender = this.records.gender
                     this.birthday = this.records.birthday
-                    this.laborList = this.records.labor
-                    this.diseaseList = this.records.disease
                 })
                 .catch((error) => {
                     this.$emit('error', error)
