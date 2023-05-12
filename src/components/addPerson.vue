@@ -98,12 +98,12 @@
                 </div>
                 <div class="flex flex-col">
                     <label
-                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                        class="bg-yellow-400 text-center uppercase tracking-wide rounded-md text-gray-700 font-bold mt-2 text-lg"
                         for="grid-state"
                     >
-                        Labor/s
+                        Health Category
                     </label>
-                    <div class="flex flex-wrap items-center gap-x-2">
+                    <div class="grid grid-cols-4 bg-yellow-200">
                         <label
                             v-for="labor in laborList"
                             :key="labor.id"
@@ -114,22 +114,20 @@
                                 v-model="selectedLabor"
                                 multiple
                                 :value="labor.id"
-                                class="form-checkbox h-5 w-5 text-gray-600"
+                                class="m-2 form-checkbox h-4 w-4 text-gray-600"
                             />
-                            <span class="ml-2 text-gray-700">{{
-                                labor.name
-                            }}</span>
+                            <span class="m-2 text-black">{{ labor.name }}</span>
                         </label>
                     </div>
                 </div>
                 <div class="flex flex-col">
                     <label
-                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                        class="block uppercase bg-sky-400 text-center tracking-wide text-gray-700 text-lg font-bold mb-2"
                         for="grid-state"
                     >
-                        Disease/s
+                        Case/s
                     </label>
-                    <div class="flex flex-wrap items-center gap-x-2">
+                    <div class="grid grid-cols-4 bg-blue-300 p-2 rounded-md">
                         <label
                             v-for="disease in diseaseList"
                             :key="disease.id"
@@ -140,9 +138,9 @@
                                 v-model="selectedDisease"
                                 multiple
                                 :value="disease.id"
-                                class="form-checkbox h-5 w-5 text-gray-600"
+                                class="form-checkbox h-4 w-4 text-gray-600"
                             />
-                            <span class="ml-2 text-gray-700">{{
+                            <span class="m-2 text-black">{{
                                 disease.name
                             }}</span>
                         </label>
@@ -257,8 +255,8 @@ export default {
                     console.log(response)
                     if (response.data.status === '201') {
                         this.$toast.success(response.data.message)
-                    } else if (response.status === '400') {
-                        this.$toast.error(response.data.Message)
+                    } else if (response.data.status === '400') {
+                        this.$toast.error(response.data.message)
                     }
                 })
             // .catch((error) => {
