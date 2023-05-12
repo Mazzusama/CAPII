@@ -157,33 +157,21 @@
                 <div class="flex">
                     <form class="bg-gray-200 shadow-md rounded-lg mb-2">
                         <!-- ########################################################################### SEARCH BAR ############################################################################################ -->
-                        <div class="flex flex-row p-4 bg-blue-500 rounded-t-lg">
-                            <label class="relative block">
-                                <span
-                                    class="absolute inset-y-0 left-0 flex items-center pl-2"
-                                >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke-width="1.5"
-                                        class="w-5 h-5 stroke-slate-400"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                                        />
-                                    </svg>
-                                </span>
-                                <input
-                                    @click.prevent
-                                    class="placeholder:italic block font-semibold bg-sky-200 w-full border border-blue-600 rounded-md py-2 pl-7 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-                                    placeholder="Search for anything..."
-                                    type="text"
-                                />
-                            </label>
+                        <!-- search -->
+                        <div
+                            class="flex flex-row p-4 bg-secondary rounded-t-lg"
+                        >
+                            <input
+                                v-model="searchQuery"
+                                @keydown.enter.prevent="fetchData"
+                                class="placeholder:italic block font-semibold bg-sky-200 w-full border border-blue-600 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+                                placeholder="Search for health cases here..."
+                                type="text"
+                                name="search"
+                            />
+
                             <button
+                                @click.prevent="fetchData"
                                 class="rounded-lg bg-blue-600 font-sans text-sm text-white p-2 font-semibold mx-2 shadow-md hover:bg-blue-900"
                             >
                                 Search
@@ -243,7 +231,7 @@
                             <tbody>
                                 <tr
                                     class="odd:bg-white even:bg-slate-50 divide-x"
-                                    v-for="disease in diseaseList"
+                                    v-for="disease in filteredDisease"
                                     :key="disease.id"
                                 >
                                     <td class="px-4 py-2">
@@ -330,12 +318,51 @@ export default {
         return {
             diseaseList: [],
             showForm: false,
+            searchQuery: [],
         }
     },
     created() {
         this.authenticate()
+        this.fetchData()
+    },
+    computed: {
+        filteredDisease() {
+            if (this.searchQuery === '') {
+                return this.diseaseList
+            } else {
+                return this.diseaseList.filter(
+                    (disease) =>
+                        disease.name
+                            .toLowerCase()
+                            .includes(this.searchQuery.toLowerCase())
+                    // person.phone_number
+                    //     .toLowerCase()
+                    //     .includes(this.searchQuery.toLowerCase())
+                )
+            }
+        },
     },
     methods: {
+        fetchData() {
+            this.searchQuery = ''
+            const url = `https://ejohncarlsrizz.pythonanywhere.com/disease/?search=${this.searchQuery}`
+
+            axios
+                .get(url, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${localStorage.getItem(
+                            'access_token'
+                        )}`,
+                    },
+                })
+                .then((response) => {
+                    this.disease = response.data.data.name
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+        },
         logout() {
             this.$store.dispatch('user/logout')
         },
