@@ -140,10 +140,12 @@
         <!-- main content -->
         <div class="flex-1">
             <!-- header -->
-            <div class="bg-white shadow px-2 py-4">Send Send Messages</div>
+            <div class="bg-white shadow px-2 py-4">Send Messages</div>
             <!-- content -->
 
-            <div class="flex items-center flex-col p-5 bg-slate-200">
+            <div
+                class="flex items-center flex-col p-5 bg-slate-200 max-w-3xl mx-auto"
+            >
                 <div
                     class="grid my-2 grid-cols-1 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5 w-full"
                 >
@@ -157,13 +159,13 @@
                         type="button"
                         class="p-2 text-white font-semibold text-sm bg-primary hover:bg-blue-950"
                         to="/sendLabor"
-                        >By Labor</router-link
+                        >By H.P.B.C</router-link
                     >
                     <router-link
                         type="button"
                         class="p-2 text-white font-semibold text-sm bg-blue-950"
                         to="/sendDisease"
-                        >By Disease</router-link
+                        >By Health Case</router-link
                     >
                     <router-link
                         type="button"
@@ -184,7 +186,7 @@
                             <label
                                 class="text-center block font-bold mb-2 w-full bg-secondary p-1"
                                 for="recipients"
-                                >Send SMS by Disease</label
+                                >Send SMS By Health Case</label
                             >
                             <select
                                 v-model="disease"
