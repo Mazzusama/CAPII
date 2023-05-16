@@ -19,6 +19,7 @@ import diseaseSMS from '../components/sms/disease.vue'
 import purokSMS from '../components/sms/purok.vue'
 import personSMS from '../components/sms/person.vue'
 import smsHistory from '../components/sms/history.vue'
+import historyView from '../components/sms/historyView.vue'
 //################# /SMS IMPORTS ########################
 import axios from 'axios'
 
@@ -116,6 +117,12 @@ const routes = [
         path: '/smsHistory',
         name: 'historySMS',
         component: smsHistory,
+        beforeEnter: authMiddleware,
+    },
+    {
+        path: '/historyView/:id',
+        name: 'HistoryView',
+        component: historyView,
         beforeEnter: authMiddleware,
     },
     //################# /SMS IMPORTS ########################
