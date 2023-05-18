@@ -264,7 +264,13 @@
                                         </td>
                                         <td class="px-4 py-2">
                                             {{ person.first_name }}
-                                            {{ person.middle_name }}
+                                            <span v-if="person.middle_name">
+                                                {{
+                                                    person.middle_name.charAt(
+                                                        0
+                                                    )
+                                                }}.</span
+                                            >
                                             {{ person.last_name }}
                                         </td>
                                         <td class="px-4 py-2">
