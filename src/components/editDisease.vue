@@ -120,6 +120,7 @@ export default {
                     console.log(response)
                     if (response.data.status === '200') {
                         this.$toast.success(response.data.Message)
+                        location.reload()
                     } else if (response.data.status === '400') {
                         this.$toast.error(response.data.Message)
                     }

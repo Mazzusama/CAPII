@@ -1,7 +1,10 @@
 <template>
     <div class="relative flex min-h-screen">
         <!-- sidebar -->
-        <div class="bg-primary w-44 flex flex-col space-y-6">
+        <div
+            class="bg-primary w-44 flex flex-col space-y-6 md:relative md:-translate-x-0 px-2 py-4 absolute inset-y-0 left-0 transform -translate-x-full transition duration-200 ease-in-out"
+            :class="{ 'relative -translate-x-0': showSidebar }"
+        >
             <div class="flex flex-row">
                 <img
                     class="rounded-md w-12 h-12 m-2"
@@ -140,8 +143,28 @@
         <!-- main content -->
         <div class="flex-1">
             <!-- header -->
-            <div class="bg-white shadow px-2 py-4 text-2xl">
-                HEALTH PROGRAM BENEFICIARY CATEGORY
+            <div
+                class="shadow px-2 py-4 text-4xl w-full flex flex-row items-center bg-secondary mb-5"
+            >
+                <button
+                    @click="showSidebar = !showSidebar"
+                    class="flex flex-row p-2 bg-primary mx-2 rounded-md"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="white"
+                        class="w-6 h-6"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z"
+                        />
+                    </svg></button
+                >HEALTH PROGRAM BENEFICIARY CATEGORY
             </div>
             <!-- content -->
             <div
@@ -199,20 +222,206 @@
                                 >
                                     <tr class="divide-x">
                                         <th
-                                            class="px-4 py-2 font-semibold text-white shadow-lg"
+                                            class="px-4 py-2 font-semibold text-white shadow-lg cursor-pointer"
+                                            @click="sortTable('name')"
                                         >
                                             HPBC
+                                            <span
+                                                v-if="sortColumn === 'name'"
+                                                class="ml-1"
+                                            >
+                                                <svg
+                                                    class="w-4 h-4 inline-block"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none"
+                                                    viewBox="0 0 24 24"
+                                                    stroke="currentColor"
+                                                >
+                                                    <path
+                                                        :class="[
+                                                            sortDirection ===
+                                                            'asc'
+                                                                ? 'hidden'
+                                                                : '',
+                                                        ]"
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M19 9l-7 7-7-7"
+                                                    />
+                                                    <path
+                                                        :class="[
+                                                            sortDirection ===
+                                                            'desc'
+                                                                ? 'hidden'
+                                                                : '',
+                                                        ]"
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M5 15l7-7 7 7"
+                                                    />
+                                                </svg>
+                                            </span>
+                                            <button
+                                                v-if="sortColumn !== 'name'"
+                                                class="text-green-600 hover:text-green-900 focus:outline-none"
+                                                @click="sortTable('name')"
+                                            >
+                                                <svg
+                                                    class="w-4 h-4 inline-block"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none"
+                                                    viewBox="0 0 24 24"
+                                                    stroke="currentColor"
+                                                >
+                                                    <path
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M12 4v16m8-8H4"
+                                                    />
+                                                </svg>
+                                            </button>
                                         </th>
                                         <th
-                                            class="px-4 py-2 font-semibold text-white shadow-md"
+                                            class="px-4 py-2 font-semibold text-white shadow-md cursor-pointer"
+                                            @click="sortTable('created_at')"
                                         >
                                             DATE CREATED
+                                            <span
+                                                v-if="
+                                                    sortColumn === 'created_at'
+                                                "
+                                                class="ml-1"
+                                            >
+                                                <svg
+                                                    class="w-4 h-4 inline-block"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none"
+                                                    viewBox="0 0 24 24"
+                                                    stroke="currentColor"
+                                                >
+                                                    <path
+                                                        :class="[
+                                                            sortDirection ===
+                                                            'asc'
+                                                                ? 'hidden'
+                                                                : '',
+                                                        ]"
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M19 9l-7 7-7-7"
+                                                    />
+                                                    <path
+                                                        :class="[
+                                                            sortDirection ===
+                                                            'desc'
+                                                                ? 'hidden'
+                                                                : '',
+                                                        ]"
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M5 15l7-7 7 7"
+                                                    />
+                                                </svg>
+                                            </span>
+                                            <button
+                                                v-if="
+                                                    sortColumn !== 'created_at'
+                                                "
+                                                class="text-green-600 hover:text-green-900 focus:outline-none"
+                                                @click="sortTable('created_at')"
+                                            >
+                                                <svg
+                                                    class="w-4 h-4 inline-block"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none"
+                                                    viewBox="0 0 24 24"
+                                                    stroke="currentColor"
+                                                >
+                                                    <path
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M12 4v16m8-8H4"
+                                                    />
+                                                </svg>
+                                            </button>
                                         </th>
                                         <th
-                                            class="px-4 py-2 font-semibold text-white shadow-md"
+                                            class="px-4 py-2 font-semibold text-white shadow-md cursor-pointer"
+                                            @click="sortTable('modified_at')"
                                         >
                                             LAST MODIFIED
+                                            <span
+                                                v-if="
+                                                    sortColumn === 'modified_at'
+                                                "
+                                                class="ml-1"
+                                            >
+                                                <svg
+                                                    class="w-4 h-4 inline-block"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none"
+                                                    viewBox="0 0 24 24"
+                                                    stroke="currentColor"
+                                                >
+                                                    <path
+                                                        :class="[
+                                                            sortDirection ===
+                                                            'asc'
+                                                                ? 'hidden'
+                                                                : '',
+                                                        ]"
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M19 9l-7 7-7-7"
+                                                    />
+                                                    <path
+                                                        :class="[
+                                                            sortDirection ===
+                                                            'desc'
+                                                                ? 'hidden'
+                                                                : '',
+                                                        ]"
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M5 15l7-7 7 7"
+                                                    />
+                                                </svg>
+                                            </span>
+                                            <button
+                                                v-if="
+                                                    sortColumn !== 'modified_at'
+                                                "
+                                                class="text-green-600 hover:text-green-900 focus:outline-none"
+                                                @click="
+                                                    sortTable('modified_at')
+                                                "
+                                            >
+                                                <svg
+                                                    class="w-4 h-4 inline-block"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none"
+                                                    viewBox="0 0 24 24"
+                                                    stroke="currentColor"
+                                                >
+                                                    <path
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M12 4v16m8-8H4"
+                                                    />
+                                                </svg>
+                                            </button>
                                         </th>
+                                        <!-- ... -->
+
                                         <th
                                             class="px-4 py-2 font-semibold text-white shadow-md"
                                         >
@@ -304,8 +513,15 @@
 <script>
 import axios from 'axios'
 import addLabor from '../components/addLabor.vue'
-
+import { ref } from 'vue'
 export default {
+    setup() {
+        const showSidebar = ref(false)
+
+        return {
+            showSidebar,
+        }
+    },
     props: {
         labor: {
             type: Object,
@@ -318,6 +534,8 @@ export default {
 
     data() {
         return {
+            sortColumn: '', // Currently sorted column
+            sortDirection: '', // Sorting direction ('asc' or 'desc')
             laborList: [],
             showForm: false,
             searchQuery: [],
@@ -345,6 +563,42 @@ export default {
         },
     },
     methods: {
+        sortTable(column) {
+            if (this.sortColumn === column) {
+                // Reverse the sorting direction if the same column is clicked again
+                this.sortDirection =
+                    this.sortDirection === 'asc' ? 'desc' : 'asc'
+            } else {
+                // Set the new sorting column and default direction
+                this.sortColumn = column
+                this.sortDirection = 'asc'
+            }
+
+            // Perform the sorting
+            this.laborList.sort((a, b) => {
+                // Customize the comparison logic based on the column
+                if (column === 'name') {
+                    // Sort by name
+                    const nameA = a.name.toLowerCase()
+                    const nameB = b.name.toLowerCase()
+                    return nameA.localeCompare(nameB)
+                } else if (column === 'created_at') {
+                    // Sort by date created
+                    return new Date(a.created_at) - new Date(b.created_at)
+                } else if (column === 'modified_at') {
+                    // Sort by last modified
+                    return new Date(a.modified_at) - new Date(b.modified_at)
+                }
+
+                return 0 // Default to no sorting
+            })
+
+            // Reverse the order if sorting in descending direction
+            if (this.sortDirection === 'desc') {
+                this.laborList.reverse()
+            }
+        },
+
         fetchData() {
             this.searchQuery = ''
             const url = `https://ejohncarlsrizz.pythonanywhere.com/labor/?search=${this.searchQuery}`
@@ -400,4 +654,8 @@ export default {
     },
 }
 </script>
-<style></style>
+<style scoped>
+button i {
+    font-size: 0.75rem;
+}
+</style>

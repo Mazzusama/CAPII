@@ -323,6 +323,7 @@ export default {
                     console.log(response)
                     if (response.data.status === '200') {
                         this.$toast.success(response.data.message)
+                        location.reload()
                     } else if (
                         response.data.message ===
                         'This phone number is already registered'

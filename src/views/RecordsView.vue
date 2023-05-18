@@ -1,7 +1,10 @@
 <template>
     <div class="relative flex min-h-screen">
         <!-- sidebar -->
-        <div class="bg-primary w-44 flex flex-col space-y-6">
+        <div
+            class="bg-primary w-44 flex flex-col space-y-6 md:relative md:-translate-x-0 px-2 py-4 absolute inset-y-0 left-0 transform -translate-x-full transition duration-200 ease-in-out"
+            :class="{ 'relative -translate-x-0': showSidebar }"
+        >
             <div class="flex flex-row">
                 <img
                     class="rounded-md w-12 h-12 m-2"
@@ -140,7 +143,29 @@
         <!-- main content -->
         <div class="flex-1 w-full overflow-x-auto">
             <!-- header -->
-            <div class="bg-white shadow px-2 py-4 text-4xl w-full">RECORDS</div>
+            <div
+                class="shadow px-2 py-4 text-4xl w-full flex flex-row items-center bg-secondary mb-5"
+            >
+                <button
+                    @click="showSidebar = !showSidebar"
+                    class="flex flex-row p-2 bg-primary mx-2 rounded-md"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="white"
+                        class="w-6 h-6"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z"
+                        />
+                    </svg></button
+                >RECORDS
+            </div>
             <!-- content -->
             <div
                 v-if="showForm"
@@ -307,8 +332,15 @@
 <script>
 import addPerson from '../components/addPerson.vue'
 import axios from 'axios'
-
+import { ref } from 'vue'
 export default {
+    setup() {
+        const showSidebar = ref(false)
+
+        return {
+            showSidebar,
+        }
+    },
     props: {
         person: {
             type: Object,
@@ -410,50 +442,3 @@ export default {
     },
 }
 </script>
-<style>
-/* default styles */
-.relative {
-    position: relative;
-}
-
-.flex {
-    display: flex;
-}
-
-.flex-col {
-    flex-direction: column;
-}
-
-.min-h-screen {
-    min-height: 100vh;
-}
-
-.space-y-6 > * + * {
-    margin-top: 1.5rem;
-}
-
-.w-full {
-    width: 100%;
-}
-
-.flex-1 {
-    flex: 1;
-}
-
-/* responsive styles */
-@media (min-width: 640px) {
-    /* screen size larger than or equal to 640px */
-    .sm:flex-row {
-        flex-direction: row;
-    }
-
-    .sm:space-y-6 > * + * {
-        margin-top: 0;
-        margin-left: 1.5rem;
-    }
-
-    .sm:w-44 {
-        width: 44px;
-    }
-}
-</style>

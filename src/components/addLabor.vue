@@ -1,6 +1,7 @@
 <template>
     <div
         class="min-w-64 px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10 absolute"
+        style="transform: translateY(-30%)"
     >
         <form @submit.prevent="submit">
             <div>
@@ -62,6 +63,7 @@ export default {
                     console.log(response)
                     if (response.data.status === '201') {
                         this.$toast.success(response.data.Message)
+                        location.reload()
                     } else if (response.data.status === '400') {
                         let errorMessage = ''
                         response.data.errors.name.forEach((error) => {

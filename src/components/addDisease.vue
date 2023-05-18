@@ -1,17 +1,18 @@
 <template>
     <div
-        class="min-w-64 px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10 absolute"
+        class="min-w-64 px-6 py-4 bg-white rounded shadow-md"
+        style="transform: translateY(-30%)"
     >
         <form @submit.prevent="submit">
             <div>
                 <label class="block text-sm font-bold text-gray-700" for="name">
-                    Name of Disease
+                    Name of health case
                 </label>
                 <input
                     v-model="diseaseName"
                     class="block w-full p-1 mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-center focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     type="text"
-                    placeholder="Input disease name here"
+                    placeholder="Input health case here"
                 />
             </div>
             <div class="flex items-center justify-start mt-4 gap-x-2">
@@ -62,6 +63,7 @@ export default {
                     console.log(response)
                     if (response.data.status === '201') {
                         this.$toast.success(response.data.Message)
+                        location.reload()
                     } else if (response.data.status === '400') {
                         let errorMessage = ''
                         response.data.errors.name.forEach((error) => {

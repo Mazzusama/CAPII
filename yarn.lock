@@ -1826,7 +1826,7 @@ vue-router@4:
   dependencies:
     "@vue/devtools-api" "^6.4.5"
 
-"vue@^3.0.0 || ^2.0.0", vue@^3.2.0, vue@^3.2.25, vue@^3.2.47, "vue@>= 3", vue@>=2.0.0, vue@3.2.47:
+"vue@^3.0.0 || ^2.0.0", vue@^3.0.5, vue@^3.2.0, vue@^3.2.25, vue@^3.2.47, "vue@>= 3", vue@>=2.0.0, vue@3.2.47:
   version "3.2.47"
   resolved "https://registry.npmjs.org/vue/-/vue-3.2.47.tgz"
   integrity sha512-60188y/9Dc9WVrAZeUVSDxRQOZ+z+y5nO2ts9jWXSTkMvayiWxCWOWtBQoYjLeccfXkiiPZWAHcV+WTPhkqJHQ==
@@ -1836,6 +1836,11 @@ vue-router@4:
     "@vue/runtime-dom" "3.2.47"
     "@vue/server-renderer" "3.2.47"
     "@vue/shared" "3.2.47"
+
+vue3-paginate@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/vue3-paginate/-/vue3-paginate-1.0.1.tgz"
+  integrity sha512-O2JxDbWPXHp8bKZdRe8a3ebBriMSPy8pOvOlvGgt84PMGqcZPLZqB9iW4Xe7zkiDMhoLFHucyhmcoBhGVznyTg==
 
 vuex@^2.0.0:
   version "2.5.0"
